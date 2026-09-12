@@ -8,6 +8,7 @@ mkdir -p smoke
 adb install -r "dist/FossTool_${VERSION}.apk"
 adb shell appops set "$PACKAGE" MANAGE_EXTERNAL_STORAGE allow
 adb logcat -c
+trap 'adb logcat -d > smoke/logcat.txt || true; adb logcat -b crash -d > smoke/crash-log.txt || true' EXIT
 
 launch_and_dump() {
   local name="$1"
@@ -27,6 +28,7 @@ python3 - <<'PY'
 import pathlib, xml.etree.ElementTree as ET
 p = pathlib.Path('smoke/first-korean.xml')
 text = '\n'.join(x.attrib.get('text', '') for x in ET.parse(p).getroot().iter())
+assert '[ko]' in pathlib.Path('smoke/first-korean-locale.txt').read_text(), 'The framework did not retain the initial Korean locale.'
 assert '모듈' in text, 'The Korean module activation dialog was not shown.'
 assert '활성화' in text, 'The module activation warning was not localized.'
 print('First launch: Korean module UI displayed without a crash.')

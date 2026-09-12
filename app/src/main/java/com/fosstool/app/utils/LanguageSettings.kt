@@ -9,19 +9,52 @@ import androidx.core.os.LocaleListCompat
 import androidx.preference.DropDownPreference
 import com.fosstool.app.R
 
+/** App locales have one persistence owner per Android version. */
 object LanguageSettings {
+    private const val PREFS = "app_language"
+    private const val INITIALIZED = "initialized"
+    private const val LANGUAGE_TAG = "language_tag"
+
     fun initialize(context: Context) {
-        val prefs = context.getSharedPreferences("app_language", Context.MODE_PRIVATE)
-        if (prefs.getBoolean("initialized", false)) return
+        val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
         if (Build.VERSION.SDK_INT >= 33) {
-            val manager = context.getSystemService(LocaleManager::class.java)
-            if (manager.applicationLocales.isEmpty) {
-                manager.applicationLocales = LocaleList.forLanguageTags("ko")
+            // The framework owns persistence on Android 13+. AppCompat auto-storage
+            // is disabled to avoid its first-Activity migration replacing this
+            // initial locale with an empty, never-created legacy locale file.
+            if (!prefs.getBoolean(INITIALIZED, false)) {
+                val manager = context.getSystemService(LocaleManager::class.java)
+                if (manager.applicationLocales.isEmpty) {
+                    manager.applicationLocales = LocaleList.forLanguageTags("ko")
+                }
+                prefs.edit().putBoolean(INITIALIZED, true).apply()
             }
         } else {
-            AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags("ko"))
+            // Before Android 13, restore our own preference on every process start.
+            // An empty tag deliberately means "follow system", not "uninitialized".
+            val tag = prefs.getString(LANGUAGE_TAG, "ko").orEmpty()
+            AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(tag))
+            if (!prefs.contains(LANGUAGE_TAG)) {
+                prefs.edit().putString(LANGUAGE_TAG, tag).apply()
+            }
         }
-        prefs.edit().putBoolean("initialized", true).apply()
+    }
+
+    private fun currentTags(context: Context): String =
+        if (Build.VERSION.SDK_INT >= 33) {
+            context.getSystemService(LocaleManager::class.java).applicationLocales.toLanguageTags()
+        } else {
+            AppCompatDelegate.getApplicationLocales().toLanguageTags()
+        }
+
+    private fun select(context: Context, tags: String) {
+        if (Build.VERSION.SDK_INT >= 33) {
+            context.getSystemService(LocaleManager::class.java).applicationLocales =
+                LocaleList.forLanguageTags(tags)
+        } else {
+            context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+                .edit().putString(LANGUAGE_TAG, tags).apply()
+            AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(tags))
+        }
     }
 
     fun preference(context: Context) = DropDownPreference(context).apply {
@@ -34,10 +67,10 @@ object LanguageSettings {
             "Українська", "Polski", "Čeština", "Română", "Tiếng Việt")
         entryValues = arrayOf("", "ko", "en", "zh-CN", "zh-TW", "zh-HK", "ja-JP", "ru-RU",
             "uk-UA", "pl-PL", "cs-CZ", "ro-RO", "vi-VN")
-        value = AppCompatDelegate.getApplicationLocales().toLanguageTags()
+        value = currentTags(context)
         summaryProvider = androidx.preference.ListPreference.SimpleSummaryProvider.getInstance()
         setOnPreferenceChangeListener { _, selected ->
-            AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(selected as String))
+            select(context, selected as String)
             true
         }
     }
