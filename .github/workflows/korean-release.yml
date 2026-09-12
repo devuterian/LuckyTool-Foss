@@ -1,0 +1,115 @@
+name: Publish Korean APK
+on:
+  push:
+    branches: [main]
+    paths: ['release/request.json']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: korean-release
+  cancel-in-progress: false
+jobs:
+  release:
+    if: github.repository == 'devuterian/LuckyTool-Foss' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate release request and translations
+        run: |
+          python3 - <<'PY'
+          import json, os, pathlib, re
+          version = json.loads(pathlib.Path('release/request.json').read_text())['version']
+          if not re.fullmatch(r'\d+\.\d+\.\d+-ko\.\d+', version):
+              raise SystemExit('Invalid release version')
+          build = pathlib.Path('app/build.gradle.kts').read_text()
+          if f'val appVersionName = "{version}"' not in build:
+              raise SystemExit('Release version and Gradle version do not match')
+          with open(os.environ['GITHUB_ENV'], 'a') as f:
+              f.write(f'VERSION={version}\n')
+          PY
+          python3 localization/generate.py --check
+          python3 localization/test_localization.py
+      - name: Refuse to overwrite a published release
+        run: |
+          if gh release view "v$VERSION" --repo "$GITHUB_REPOSITORY" > /dev/null 2>&1; then
+            echo 'This release already exists; refusing to overwrite it.'
+            exit 1
+          fi
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: |
+            17
+            21
+      - name: Install verified Android command-line tools
+        run: |
+          curl --fail --location --retry 3 https://dl.google.com/android/repository/commandlinetools-linux-15859902_latest.zip -o "$RUNNER_TEMP/android-tools.zip"
+          echo '4e4c464f145a7512b57d088ac6c278c03c9eea610886b35a5e0804e74eedf583  '"$RUNNER_TEMP/android-tools.zip" | sha256sum -c -
+          mkdir -p "$RUNNER_TEMP/android-cli"
+          unzip -q "$RUNNER_TEMP/android-tools.zip" -d "$RUNNER_TEMP/android-cli"
+          echo "$RUNNER_TEMP/android-cli/cmdline-tools/bin" >> "$GITHUB_PATH"
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          cache-read-only: false
+          cache-cleanup: never
+      - name: Install compile SDK
+        run: |
+          set +o pipefail
+          yes | sdkmanager --sdk_root="$ANDROID_HOME" --licenses > /dev/null 2>&1
+          set -o pipefail
+          sdkmanager --sdk_root="$ANDROID_HOME" 'platforms;android-37.0' 'build-tools;36.0.0'
+      - name: Build release APK
+        run: |
+          if bash gradlew --no-daemon --no-configuration-cache --console=plain :app:assembleRelease > build.log 2>&1; then
+            tail -n 35 build.log
+          else
+            tail -n 130 build.log
+            exit 1
+          fi
+      - name: Sign and verify release APK
+        env:
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: bash ci/sign-release.sh "$VERSION"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: encrypted-signing-recovery
+          path: recovery-artifact/*.p7m
+          retention-days: 7
+          if-no-files-found: ignore
+      - name: Enable hardware virtualization for smoke test
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Smoke test the signed APK on Android 15
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 35
+          arch: x86_64
+          target: default
+          disable-animations: true
+          script: bash ci/smoke-test.sh "$VERSION"
+      - name: Publish immutable tagged release
+        run: |
+          gh release create "v$VERSION" --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" \
+            --title "FossTool $VERSION · 한국어판" --notes-file release/NOTES.ko.md \
+            "dist/FossTool_${VERSION}.apk" "dist/FossTool_${VERSION}_source.zip" \
+            dist/SHA256SUMS.txt dist/SIGNATURE.txt dist/APK-METADATA.txt dist/BUILD-INFO.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: korean-release-results
+          path: |
+            dist
+            smoke
+            build.log
+          retention-days: 14
+          if-no-files-found: ignore

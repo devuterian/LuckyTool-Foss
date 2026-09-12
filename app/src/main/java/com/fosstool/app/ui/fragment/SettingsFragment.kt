@@ -1,5 +1,7 @@
 package com.fosstool.app.ui.fragment
 
+import com.fosstool.app.utils.LanguageSettings
+
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
@@ -115,7 +117,7 @@ class SettingsFragment : ModulePreferenceFragment() {
                         }
 
                         "String" -> context.putString(prefs, key, value as String)
-                        else -> context.toast("Error: $key")
+                        else -> context.toast(context.getString(R.string.restore_key_error, key))
                     }
                 }
             }
@@ -143,6 +145,7 @@ class SettingsFragment : ModulePreferenceFragment() {
                     true
                 }
             })
+            addPreference(LanguageSettings.preference(context))
             addPreference(DropDownPreference(context).apply {
                 key = "dark_theme"
                 title = getString(R.string.dark_theme)

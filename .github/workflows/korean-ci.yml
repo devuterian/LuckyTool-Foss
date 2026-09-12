@@ -1,42 +1,74 @@
 name: Korean localization CI
-
 on:
   push:
-    branches: [main]
+    branches: [main, korean-localization]
+    paths-ignore: ['localization/**', '**.md']
   pull_request:
   workflow_dispatch:
-
 permissions:
   contents: read
-
+concurrency:
+  group: korean-ci-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
+      - name: Validate Korean localization
+        run: |
+          python3 localization/generate.py --check
+          python3 localization/test_localization.py
+      - name: Export source snapshot
+        run: git archive --format=zip --output=source-audit.zip HEAD
+      - uses: actions/upload-artifact@v4
+        with:
+          name: source-audit
+          path: source-audit.zip
+          retention-days: 7
+      - uses: actions/setup-java@v5
         with:
           distribution: temurin
-          java-version: '17'
-      - uses: android-actions/setup-android@v3
-      - uses: gradle/actions/setup-gradle@v4
-      - name: Install compile SDK
-        run: sdkmanager 'platforms;android-37' 'build-tools;36.0.0'
-      - name: Prepare isolated CI signing and remove workstation proxy
+          java-version: |
+            17
+            21
+      - name: Install verified Android command-line tools
         shell: bash
         run: |
-          sed -i '/^systemProp\..*[Pp]roxy/d' gradle.properties
-          mkdir -p keystore
-          keytool -genkeypair -keystore "$RUNNER_TEMP/ci.jks" -alias ci -storepass android -keypass android -keyalg RSA -keysize 2048 -validity 30 -dname 'CN=CI Build'
-          printf 'storeFile=%s\nkeyAlias=ci\nkeyPassword=android\nstorePassword=android\n' "$RUNNER_TEMP/ci.jks" > keystore/keystore.properties
-      - name: Build baseline
-        run: bash gradlew --no-daemon --stacktrace :app:assembleDebug
+          curl --fail --location --retry 3 https://dl.google.com/android/repository/commandlinetools-linux-15859902_latest.zip -o "$RUNNER_TEMP/android-tools.zip"
+          echo '4e4c464f145a7512b57d088ac6c278c03c9eea610886b35a5e0804e74eedf583  '"$RUNNER_TEMP/android-tools.zip" | sha256sum -c -
+          mkdir -p "$RUNNER_TEMP/android-cli"
+          unzip -q "$RUNNER_TEMP/android-tools.zip" -d "$RUNNER_TEMP/android-cli"
+          echo "$RUNNER_TEMP/android-cli/cmdline-tools/bin" >> "$GITHUB_PATH"
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          cache-read-only: ${{ github.event_name == 'pull_request' }}
+          cache-cleanup: never
+      - name: Install compile SDK
+        shell: bash
+        run: |
+          set +o pipefail
+          yes | sdkmanager --sdk_root="$ANDROID_HOME" --licenses > /dev/null 2>&1
+          set -o pipefail
+          sdkmanager --sdk_root="$ANDROID_HOME" 'platforms;android-37.0' 'build-tools;36.0.0'
+          test -f "$ANDROID_HOME/platforms/android-37.0/android.jar"
+      - name: Build release APK
+        shell: bash
+        run: |
+          if bash gradlew --no-daemon --no-configuration-cache --console=plain :app:assembleRelease > build.log 2>&1; then
+            tail -n 35 build.log
+          else
+            tail -n 130 build.log
+            exit 1
+          fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: build-reports
+          name: build-results
           path: |
+            build.log
+            app/build/outputs/apk/release/*.apk
             app/build/reports
             build/reports
           if-no-files-found: ignore

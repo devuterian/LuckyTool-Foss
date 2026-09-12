@@ -505,7 +505,7 @@ class MemcActivityListFragment : Fragment() {
         db.activityNameEdit.setOnClickListener {
             val pkg = db.packageNameEdit.text?.toString().orEmpty()
             if (pkg.isBlank()) {
-                ctx.toast("PackageName is null!")
+                ctx.toast(ctx.getString(R.string.package_name_required))
                 return@setOnClickListener
             }
             MemcSelectorHelper.pickActivity(this, ctx, pkg) { act ->
@@ -671,7 +671,7 @@ internal object MemcSelectorHelper {
             val activities = pkgInfo?.activities?.mapNotNull { it.name }?.sorted().orEmpty()
             withContext(Dispatchers.Main) {
                 if (activities.isEmpty()) {
-                    context.toast("App data is null!")
+                    context.toast(context.getString(R.string.activities_not_found))
                     return@withContext
                 }
                 val labels = activities.toTypedArray()

@@ -620,19 +620,14 @@ class StatusBarClock : BaseScopePreferenceFeagment() {
                             Y/M/d/E/a -> ${formatDate("Y/M/d/E/a")}
                             YY/YYYY -> ${formatDate("YY/YYYY")}
                             M/MM/MMM/MMMM/MMMMM -> ${formatDate("M/MM/MMM/MMMM/MMMMM")}
-                            d/dd/ddd/dddd -> ${formatDate("d/dd/d号/dd号")}
+                            d/dd/ddd/dddd -> ${formatDate(if (ctx.resources.configuration.locales[0].language == "ko") "d/dd/d일/dd일" else "d/dd/d号/dd号")}
                             E/EE/EEE/EEEE/EEEEE -> ${formatDate("E/EE/EEE/EEEE/EEEEE")}
                             h/H/k/K -> ${formatDate("h/H/k/K")}
                             HH:mm:ss -> ${formatDate("HH:mm:ss")}
                             m/mm/mmm/mmmm -> ${formatDate("m/mm/mmm/mmmm")}
                             s/ss/sss/ssss -> ${formatDate("s/ss/sss/ssss")}
                             z -> ${formatDate("z")}
-                            N -> 初一
-                            NN -> 二月初一
-                            NNN -> 兔年二月初一
-                            NNNN -> 癸卯兔年二月初一
-                            FF -> 凌晨/上午/傍晚/晚上
-                            GG -> 子时/丑时/寅时/卯时
+                            ${ctx.getString(R.string.clock_lunar_examples)}
                         """
 .trimIndent()
                     key = "statusbar_clock_custom_format"
@@ -1050,19 +1045,19 @@ class StatusBarNotify : BaseScopePreferenceFeagment() {
                     title = ctx.getString(R.string.set_small_window_reply_blacklist)
                     dialogTitle = title
                     summary = ctx.getString(
-                        ModulePrefs, "set_small_window_reply_blacklist", "None"
+                        ModulePrefs, "set_small_window_reply_blacklist", ctx.getString(R.string.cur_type_none)
                     )
-                    if (summary.isNullOrBlank()) summary = "None"
+                    if (summary.isNullOrBlank()) summary = ctx.getString(R.string.cur_type_none)
                     dialogMessage = ctx.getString(R.string.set_small_window_reply_blacklist_message)
                     key = "set_small_window_reply_blacklist"
-                    setDefaultValue("None")
+                    setDefaultValue(ctx.getString(R.string.cur_type_none))
                     isIconSpaceReserved = false
                     setOnBindEditTextListener {
                         it.setText((summary as String).replaceBlankLine)
                     }
                     setOnPreferenceChangeListener { _, newValue ->
                         val format = (newValue as String).replaceBlankLine
-                        summary = format.ifBlank { "None" }
+                        summary = format.ifBlank { ctx.getString(R.string.cur_type_none) }
                         ctx.dataChannel("com.android.systemui").put(key, format)
                         true
                     }
@@ -4106,15 +4101,15 @@ class Camera : BaseScopePreferenceFeagment() {
                 title = ctx.getString(R.string.custom_model_watermark)
                 dialogTitle = title
                 summary = ctx.getString(
-                    ModulePrefs, "custom_model_watermark", "None"
+                    ModulePrefs, "custom_model_watermark", ctx.getString(R.string.cur_type_none)
                 )
-                if (summary.isNullOrBlank()) summary = "None"
+                if (summary.isNullOrBlank()) summary = ctx.getString(R.string.cur_type_none)
                 key = "custom_model_watermark"
-                setDefaultValue("None")
+                setDefaultValue(ctx.getString(R.string.cur_type_none))
                 isIconSpaceReserved = false
                 isVisible = SDK >= A13 && Build.MODEL.contains("RM", true).not()
                 setOnPreferenceChangeListener { _, newValue ->
-                    summary = (newValue as String).ifBlank { "None" }
+                    summary = (newValue as String).ifBlank { ctx.getString(R.string.cur_type_none) }
                     true
                 }
             })
@@ -4584,20 +4579,20 @@ class OplusGames : BaseScopePreferenceFeagment() {
                 title = ctx.getString(R.string.custom_media_player_support)
                 dialogTitle = title
                 summary = ctx.getString(
-                    ModulePrefs, "custom_media_player_support", "None"
+                    ModulePrefs, "custom_media_player_support", ctx.getString(R.string.cur_type_none)
                 )
-                if (summary.isNullOrBlank()) summary = "None"
+                if (summary.isNullOrBlank()) summary = ctx.getString(R.string.cur_type_none)
                 dialogMessage = ctx.getString(R.string.custom_media_player_support_message)
                 key = "custom_media_player_support"
-                setDefaultValue("None")
+                setDefaultValue(ctx.getString(R.string.cur_type_none))
                 isIconSpaceReserved = false
                 setOnBindEditTextListener {
                     it.setText((summary as String).replaceBlankLine)
                 }
                 setOnPreferenceChangeListener { _, newValue ->
                     val format = (newValue as String).replaceBlankLine
-                    summary = format.ifBlank { "None" }
-                    val packages = if (format.isBlank() || format == "None") {
+                    summary = format.ifBlank { ctx.getString(R.string.cur_type_none) }
+                    val packages = if (format.isBlank() || format == ctx.getString(R.string.cur_type_none)) {
                         emptySet()
                     } else {
                         format.split("\n").map { it.trim() }.filter { it.isNotBlank() }.toSet()
@@ -5045,7 +5040,7 @@ class OplusBrowser : BaseScopePreferenceFeagment() {
                             startActivity(this)
                         }
                     } catch (_: Exception) {
-                        ctx.toast("Error: Please check your browser version!")
+                        ctx.toast(ctx.getString(R.string.browser_version_error))
                     }
                     true
                 }
@@ -5136,12 +5131,12 @@ class OplusGesture : BaseScopePreferenceFeagment() {
                     title = ctx.getString(R.string.custom_aon_gesture_scroll_page_whitelist)
                     dialogTitle = title
                     summary = ctx.getString(
-                        ModulePrefs, "custom_aon_gesture_scroll_page_whitelist", "None"
+                        ModulePrefs, "custom_aon_gesture_scroll_page_whitelist", ctx.getString(R.string.cur_type_none)
                     )
-                    if (summary.isNullOrBlank()) summary = "None"
+                    if (summary.isNullOrBlank()) summary = ctx.getString(R.string.cur_type_none)
                     dialogMessage = ctx.getString(R.string.custom_aon_gesture_whitelist_tips)
                     key = "custom_aon_gesture_scroll_page_whitelist"
-                    setDefaultValue("None")
+                    setDefaultValue(ctx.getString(R.string.cur_type_none))
                     isEnabled = ctx.checkPackName("com.aiunit.aon")
                     isIconSpaceReserved = false
                     setOnBindEditTextListener {
@@ -5149,7 +5144,7 @@ class OplusGesture : BaseScopePreferenceFeagment() {
                     }
                     setOnPreferenceChangeListener { _, newValue ->
                         val format = (newValue as String).replaceBlankLine
-                        summary = format.ifBlank { "None" }
+                        summary = format.ifBlank { ctx.getString(R.string.cur_type_none) }
                         true
                     }
                 })

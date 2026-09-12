@@ -21,14 +21,14 @@ object NotifyUtils {
     private const val POST_NOTIFICATIONS = "android.permission.POST_NOTIFICATIONS"
 
     const val DEFAULT_NOTICE_ID = "default"
-    const val DEFAULT_NOTICE_NAME = "默认通知"
+    fun defaultNoticeName(context: Context): String = context.getString(R.string.default_notification_channel)
     const val DEFAULT_NOTICE_IMPORTANCE = NotificationManager.IMPORTANCE_DEFAULT
 
     fun getDemoNotification(context: Context): Notification {
         return NotificationCompat.Builder(context, DEFAULT_NOTICE_ID)
             .setSmallIcon(R.drawable.ic_baseline_info_24)
-            .setContentTitle("标题")
-            .setContentText("内容")
+            .setContentTitle(context.getString(R.string.app_name))
+            .setContentText(context.getString(R.string.demo_notification_text))
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .build()
     }

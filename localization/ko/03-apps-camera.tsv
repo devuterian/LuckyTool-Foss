@@ -1,0 +1,175 @@
+remove_multi_app_blacklist	앱 복제 차단 목록 해제
+remove_multi_app_blacklist_summary	기기를 다시 시작해야 합니다.
+remove_multi_app_create_limit_per_app	앱별 복제 개수 제한 해제
+remove_multi_app_create_limit_per_app_summary	앱 하나당 만들 수 있는 복제 앱의 수입니다.
+remove_multi_app_create_limit_total_app	복제 가능한 앱 수 제한 해제
+remove_multi_app_create_limit_total_app_summary	복제 기능을 사용할 수 있는 원본 앱의 수입니다.
+remove_multi_app_created_num_limit_for_users	앱 복제 개수 제한 모두 해제
+remove_multi_app_created_num_limit_for_users_summary	앱별 복제 개수와 복제 가능한 전체 앱 수의 제한을 모두 해제합니다.
+AppInstallationRelated	앱 설치
+PackageInstaller_summary	코어 패치와 함께 사용해야 합니다.
+force_enable_32_bit_support	32비트 앱 지원 강제 활성화
+force_enable_32_bit_support_summary	기기를 다시 시작해야 합니다.
+fix_install_button_display_exception	설치 버튼 표시 오류 수정
+fix_install_button_display_exception_summary	설치 버튼이 잘못 표시되거나 설치 중 앱이 종료되는 문제에 대응합니다.
+disable_start_app_detail	설치 시 AppDetail 실행 건너뛰기
+disable_start_app_detail_summary	제조사 설치 프로그램의 AppDetail 검사 단계를 건너뜁니다.
+show_more_apk_package_information	설치 패키지 상세 정보 표시
+show_more_apk_package_information_summary	설치 화면 위쪽에 패키지 이름과 버전 코드 등을 표시합니다.
+skip_apk_scan	APK 검사 건너뛰기
+skip_apk_scan_summary	설치 패키지의 바이러스 검사 단계를 건너뜁니다.
+allow_downgrade_install	다운그레이드 설치 허용
+allow_downgrade_install_summary	동일하거나 낮은 버전을 설치할 때 나타나는 경고 등을 없앱니다.
+disable_apk_signature_verification	설치 프로그램의 APK 서명 검증 끄기
+disable_apk_signature_verification_summary	서명이 다른 앱을 설치할 수 있도록 허용합니다. 코어 패치와 함께 사용하세요.
+remove_install_ads	설치 완료 화면의 광고 숨기기
+remove_install_ads_summary	시스템 설정의 안전한 앱 추천도 꺼 주세요.
+auto_click_install_button	설치 버튼 자동 누르기
+auto_click_uninstall_button	제거 버튼 자동 누르기
+ApplyOtherRestrictions	기타 앱 제한
+remove_adb_install_confirm	ADB 설치 확인 생략
+remove_adb_install_confirm_summary	기기에서 확인 버튼을 누르지 않고 ADB로 앱을 설치합니다.
+unlock_startup_limit	자동 시작 앱 수 제한 해제
+unlock_startup_limit_summary	자동으로 시작할 수 있는 앱의 수 제한을 해제합니다.
+unlock_task_locks	최근 앱 잠금 개수 제한 해제
+unlock_default_desktop_limit	기본 홈 앱 변경 제한 해제
+force_all_apps_support_split_screen	모든 앱에서 분할 화면 허용
+remove_app_uninstall_button_blacklist	앱 제거 버튼의 차단 목록 해제
+allow_locking_unlocking_of_excluded_activity	제외된 액티비티의 잠금·잠금 해제 허용
+FloatingWindowDialogRelated	팝업 창 및 대화상자
+disable_duplicate_floating_window	복사 미리보기 팝업 끄기
+disable_duplicate_floating_window_summary	텍스트를 복사할 때 미리보기 팝업을 표시하지 않습니다.
+disable_headphone_high_volume_warning	이어폰의 높은 볼륨 경고 끄기
+disable_headphone_high_volume_warning_summary	이어폰을 연결하고 볼륨을 높일 때 나타나는 청력 보호 경고를 표시하지 않습니다.
+remove_low_battery_dialog_warning	배터리 부족 팝업 숨기기
+remove_low_battery_dialog_warning_summary	절전 모드와 초절전 모드 전환을 안내하는 경고 팝업을 숨깁니다.
+remove_warning_dialog_that_app_runs_on_desktop	홈 화면 위에 표시되는 앱 경고 숨기기
+remove_warning_dialog_that_app_runs_on_desktop_summary	다른 앱이 시스템 홈 화면 위에서 실행 중이라는 경고 팝업을 숨깁니다.
+remove_usb_connect_dialog	USB 연결 팝업 숨기기
+remove_usb_connect_dialog_summary	USB 연결 시 기본으로 파일 전송 모드를 선택합니다.
+remove_secure_pay_found_virus_dialog	결제 보호의 바이러스 감지 팝업 숨기기
+remove_access_device_log_dialog	기기 로그 접근 팝업 숨기기
+custom_volume_dialog_background_transparency	볼륨 패널 배경 투명도
+FingerPrintRelated	지문 인식
+remove_fingerprint_icon_mode	지문 아이콘 숨김 방식
+remove_fingerprint_icon	지문 아이콘만 숨기기
+remove_fingerprint_press_animation	지문 터치 애니메이션만 숨기기
+remove_fingerprint_icon_and_press_animation	아이콘과 터치 애니메이션 모두 숨기기
+replace_fingerprint_icon_switch	지문 아이콘 바꾸기
+replace_fingerprint_icon_switch_summary	216 × 216픽셀 정도의 이미지를 권장합니다.
+replace_fingerprint_icon_path	지문 아이콘 이미지 경로
+Miscellaneous	기타 기능
+Miscellaneous_summary	다른 분류에 속하지 않는 기능을 모았습니다.
+show_charging_ripple	충전 연결 시 물결 효과 표시
+show_charging_ripple_summary	충전기를 연결하는 순간에만 적용됩니다.
+disable_otg_auto_off	OTG 자동 끄기 방지
+disable_otg_auto_off_summary	10분이 지나면 OTG가 자동으로 꺼지는 동작을 막습니다.
+remove_storage_limit	저장소 접근 제한 해제
+remove_storage_limit_summary	폴더 선택 시 ‘이 폴더를 사용할 수 없음’ 제한을 해제합니다.
+media_volume_level	미디어 볼륨 단계 수
+media_volume_level_summary	0으로 설정하면 기능을 끕니다. 기기를 다시 시작하면 적용됩니다.
+minimum_volume_level_can_be_zero	최저 볼륨을 0으로 설정 허용
+open_screen_power_save	화면 절전 설정 표시
+open_screen_power_save_summary	설정 → 배터리 → 추가 설정 → 화면 절전
+open_battery_health	배터리 상태 설정 표시
+open_battery_health_summary	설정 → 배터리 → 배터리 상태
+performance_mode_and_standby_optimization	성능 모드 및 대기 최적화
+performance_mode_and_standby_optimization_summary	설정 → 배터리 → 추가 설정
+allow_untrusted_touch	신뢰할 수 없는 터치 허용
+set_volume_bar_display_position	볼륨 패널 표시 위치
+force_enable_systemui_blur_feature	시스템 UI 흐림 효과 강제 활성화
+force_enable_systemui_blur_feature_tips	먼저 기타 기능에서 ‘시스템 UI 흐림 효과 강제 활성화’를 켜 주세요.
+remove_battery_temperature_control	배터리 온도에 따른 기능 제한 해제
+remove_battery_temperature_control_summary	배터리 온도로 인해 카메라, 손전등, 핫스팟, 화면 처리 엔진 등을 사용할 수 없게 되는 제한을 해제합니다.
+BatteryOptimization	배터리 최적화
+restore_default_battery_optimization_whitelist	기본 배터리 최적화 예외 목록 복원
+disable_customize_battery_optimization_whiteList	배터리 최적화 예외 목록에 자동 추가 방지
+disable_customize_battery_optimization_whiteList_summary	사용자가 앱에 배터리 최적화 제외 권한을 직접 부여하더라도, 해당 앱을 별도의 최적화 예외 목록에 자동으로 추가하지 않습니다.
+settings_status_bar	상태 표시줄
+enable_statusbar_clock_format	상태 표시줄 시계 형식 설정 표시
+enable_statusbar_clock_format_summary	일부 시스템에서 숨겨진 상태 표시줄 시계 형식 변경 옵션을 표시합니다.
+settings_lock_screen	잠금 화면
+enable_show_never_timeout	화면 자동 꺼짐의 ‘사용 안 함’ 옵션 표시
+enable_show_never_timeout_summary	켜면 시스템 설정에서 추가 옵션을 선택할 수 있습니다.
+settings_display	디스플레이
+force_display_dc_backlight_mode_summary	설정 항목만 표시합니다. 실제 기능의 작동을 보장하지는 않습니다.
+force_display_video_memc_frame_insertion	동영상 프레임 보간(MEMC) 설정 강제 표시
+video_frame_insertion_support_2K120	2K·120Hz 동영상 프레임 보간 허용
+video_frame_insertion_support_2K120_summary	MEMC를 지원하지 않는 기기에서는 사용하지 마세요.
+settings_application	앱
+force_display_process_management	프로세스 관리 강제 표시
+force_display_disabled_apps_manager	사용 중지된 앱 관리 강제 표시
+force_display_auto_launch_jump_option	자동 시작 설정 바로가기 강제 표시
+settings_phone_preference	휴대전화 정보
+set_processor_click_page	프로세서 항목을 눌렀을 때 열 화면
+customize_device_sharing_page_parameters	기기 정보 공유 화면 사용자 지정
+settings_developer_preference	개발자 옵션
+remove_dpi_restart_recovery	재부팅 후 DPI 초기화 방지
+remove_dpi_restart_recovery_summary	기능을 켜고 적용 대상 프로세스를 다시 시작한 뒤, 개발자 옵션에서 최소 너비를 설정하세요.
+settings_other_preference	기타 시스템 설정
+remove_top_account_display	설정 상단의 계정 표시 숨기기
+disable_cn_special_edition_setting	중국 내수용 설정 끄기
+force_display_content_recommend	콘텐츠 추천 설정 강제 표시
+remove_settings_bottom_laboratory	설정 하단의 실험실 숨기기
+force_display_bottom_google_settings	설정 하단에 Google 항목 강제 표시
+AppDetailsRelated	앱 정보 화면
+show_package_name_in_app_details	패키지 이름 표시
+show_sdk_version_in_app_details	SDK 버전 표시
+show_first_install_time_in_app_details	최초 설치 시각 표시
+show_last_update_time_in_app_details	마지막 업데이트 시각 표시
+show_install_source_in_app_details	설치 출처 표시
+enable_long_press_to_copy_in_app_details	정보를 길게 눌러 복사 허용
+click_icon_open_market_page	아이콘을 눌러 스토어 페이지 열기
+enable_multi_app_quick_jump	복제 앱 바로가기 사용
+enable_quick_open_market_page	앱 스토어 바로가기 사용
+allow_disabling_system_apps	시스템 앱 사용 중지 허용
+allow_disabling_system_apps_summary	시스템 앱을 잘못 중지하면 복원할 수 없을 수 있습니다. 사용자 조작으로 발생한 문제에 대해 이 모듈은 책임지지 않습니다.
+enable_custom_app_language	앱별 언어 설정 사용
+CameraWaterMark	워터마크
+remove_watermark_word_limit	워터마크 글자 수 제한 해제
+enable_hasselblad_watermark_style	핫셀블라드 워터마크 스타일 사용
+custom_model_watermark	기기명 워터마크 사용자 지정
+CameraFilter	필터
+enable_master_filter	마스터 필터 사용
+enable_jiangwen_filter	장원 필터 사용
+enable_10_bit_image_support	10비트 사진 촬영 사용
+enable_10_bit_image_support_summary	일부 기기에서는 사진이 초록색으로 나올 수 있습니다.
+enable_camera_debug_ui_option	카메라 디버그 UI 설정 표시
+remove_camera_flash_limit	카메라 플래시 사용 제한 해제
+custom_camera_open_gallery_by_default	기본으로 열 갤러리 앱
+custom_camera_open_gallery_by_default_not_set	설정하지 않음
+only_allow_select_one_album_app	갤러리 앱은 하나만 선택해 주세요.
+enable_video_shooting_wheel_zoom	동영상 촬영 중 줌 다이얼 사용
+remove_flashlight_usage_limit	플래시 사용 제한 해제
+enable_frame_watermark_style	프레임 워터마크 사용
+remove_filter_model_limit	필터의 기종 제한 해제
+camera_universal_filter_settings	일반 촬영 필터
+camera_portrait_filter_settings	인물 사진 필터
+camera_video_filter_settings	동영상 필터
+camera_filter_master	마스터 필터
+camera_filter_jiangwen	장원 필터
+camera_filter_grand_tour	여행 필터
+camera_filter_vignette_grain	시네마 필터
+camera_filter_desert	사막의 전설
+camera_filter_tol	루촨 시네마 필터
+camera_filter_os15_zhi_gan	질감 필터(ColorOS 15)
+camera_filter_jzk	자장커 필터
+camera_filter_portrait_keep_color	인물 색상 유지
+camera_filter_light_spot_portrait	보케 인물 사진
+camera_filter_color_extraction	빨강·초록·하늘색 강조
+GalleryWaterMark	갤러리 워터마크
+enable_watermark_editing	워터마크 편집 사용
+remove_gallery_watermark_word_limit	사용자 지정 워터마크 글자 수 제한 해제
+enable_hassel_watermark	핫셀블라드 워터마크 사용
+enable_privacy_watermark	개인정보 보호 워터마크 사용
+replace_oneplus_model_watermark	OnePlus 기기명 워터마크 바꾸기
+replace_oneplus_model_watermark_summary	워터마크 편집 시 ‘Shot On OnePlus’를 지정한 기기명으로 바꿉니다.
+OplusGamesLayout	게임 도우미 화면
+OplusGamesTool	게임 도구
+remove_root_check	게임 필터 사용 제한 해제
+remove_root_check_summary	루트 감지로 인한 게임 필터 사용 제한을 해제합니다.
+remove_startup_animation	시작 애니메이션 없애기
+remove_welfare_page	혜택 페이지 숨기기
+remove_tool_recommendation_card	도구 추천 카드 숨기기
+remove_some_vip_limit	일부 VIP 기능 제한 해제
+remove_some_vip_limit_summary	네트워크 가속, 게임 필터 등의 제한을 해제합니다.\n실제로 사용할 수 있는 기능은 기기에서 확인해 주세요.

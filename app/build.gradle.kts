@@ -1,10 +1,5 @@
 import com.github.megatronking.stringfog.plugin.StringFogExtension
-import java.io.FileInputStream
 import java.util.Properties
-
-val keystorePropertiesFile: File = rootProject.file("keystore/keystore.properties")
-val keystoreProperties = Properties()
-keystoreProperties.load(FileInputStream(keystorePropertiesFile))
 
 plugins {
     id("com.android.application")
@@ -14,23 +9,30 @@ plugins {
     id("stringfog")
 }
 
-val appVersionCode = getVersionCode()
-val appVersionName = "2.0.3"
+// Private signing is optional for local builds. Release CI signs the unsigned
+// APK with an isolated key; debug builds always use Android's debug keystore.
+val keystoreProperties = Properties().apply {
+    val props = rootProject.file("keystore/keystore.properties")
+    if (props.isFile) props.inputStream().use { load(it) }
+}
+val appVersionCode = 20004
+val appVersionName = "2.0.3-ko.1"
 
 android {
-    signingConfigs {
-        create("release") {
-            enableV1Signing = true
-            enableV2Signing = true
-            enableV3Signing = true
-            enableV4Signing = null
-            storeFile = file(keystoreProperties["storeFile"] as String)
-            keyAlias = keystoreProperties["keyAlias"] as String
-            keyPassword = keystoreProperties["keyPassword"] as String
-            storePassword = keystoreProperties["storePassword"] as String
+    if (keystoreProperties.containsKey("storeFile")) {
+        signingConfigs {
+            create("release") {
+                enableV1Signing = true
+                enableV2Signing = true
+                enableV3Signing = true
+                storeFile = file(keystoreProperties.getProperty("storeFile"))
+                keyAlias = keystoreProperties.getProperty("keyAlias")
+                keyPassword = keystoreProperties.getProperty("keyPassword")
+                storePassword = keystoreProperties.getProperty("storePassword")
+            }
         }
     }
-    compileSdk = 37
+    compileSdk { version = release(37) { minorApiLevel = 0 } }
     namespace = "com.fosstool.app"
     defaultConfig {
         applicationId = "com.fosstool.app"
@@ -40,23 +42,18 @@ android {
         versionName = appVersionName
         buildConfigField("String", "APP_CENTER_SECRET", "\"${getAppCenterSecret()}\"")
     }
-
     buildTypes {
         release {
             isDebuggable = false
             isMinifyEnabled = false
             isShrinkResources = false
-            signingConfig = signingConfigs.getByName("release")
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+            signingConfig = signingConfigs.findByName("release")
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
         debug {
             isDebuggable = true
             isMinifyEnabled = false
             isShrinkResources = false
-            signingConfig = signingConfigs.getByName("release")
         }
     }
     compileOptions {
@@ -70,16 +67,11 @@ android {
         buildConfig = true
     }
     applicationVariants.all {
-        val buildType = buildType.name
-        val version = "$versionName($versionCode)"
-        println("version -> $version")
-        println("buildType -> $buildType")
+        val variantBuildType = buildType.name
         outputs.all {
             @Suppress("DEPRECATION")
             if (this is com.android.build.gradle.api.ApkVariantOutput) {
-                if (buildType == "release") outputFileName = "LuckyTool_v${version}.apk"
-                if (buildType == "debug") outputFileName = "LuckyTool_v${version}_debug.apk"
-                println("outputFileName -> $outputFileName")
+                outputFileName = "FossTool_${appVersionName}_${variantBuildType}.apk"
             }
         }
     }
@@ -98,13 +90,10 @@ configurations.all {
 }
 
 dependencies {
-
     compileOnly("de.robv.android.xposed:api:82")
     implementation("com.highcapable.yukihookapi:api:1.3.2")
     ksp("com.highcapable.yukihookapi:ksp-xposed:1.3.2")
-
     implementation("org.luckypray:dexkit:2.2.0")
-
     implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.4")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
@@ -114,20 +103,15 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
     implementation("com.github.getActivity:XXPermissions:18.2")
     implementation("com.github.simplepeng.SpiderMan:spiderman:v1.2.3")
-    val kotlinxCoroutinesVersion = "1.7.3"
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${kotlinxCoroutinesVersion}")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:${kotlinxCoroutinesVersion}")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
     implementation("com.squareup.okhttp3:okhttp:4.11.0")
     implementation("com.github.liangjingkanji:Net:3.6.2")
-    val libsuVersion = "5.0.5"
-    implementation("com.github.topjohnwu.libsu:core:${libsuVersion}")
-    implementation("com.github.topjohnwu.libsu:service:${libsuVersion}")
-
-    val appCenterSdkVersion = "5.0.2"
-    implementation("com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}")
-    implementation("com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}")
-
+    implementation("com.github.topjohnwu.libsu:core:5.0.5")
+    implementation("com.github.topjohnwu.libsu:service:5.0.5")
+    implementation("com.microsoft.appcenter:appcenter-analytics:5.0.2")
+    implementation("com.microsoft.appcenter:appcenter-crashes:5.0.2")
     compileOnly("com.github.megatronking.stringfog:xor:5.0.0")
 }
 
@@ -139,22 +123,7 @@ configure<StringFogExtension> {
     mode = com.github.megatronking.stringfog.plugin.StringFogMode.base64
 }
 
-fun getVersionCode(): Int {
-    val propsFile = file("version.properties")
-    if (propsFile.canRead()) {
-        val properties = Properties()
-        properties.load(FileInputStream(propsFile))
-        var vCode = properties["versionCode"].toString().toInt()
-        properties["versionCode"] = (vCode).toString()
-        properties.store(propsFile.writer(), null)
-        println("versionCode -> $vCode")
-        return vCode
-    } else throw GradleException("无法读取 version.properties!")
-}
-
 fun getAppCenterSecret(): String {
-    var content = ""
-    val file = rootProject.file(".secret/APP_CENTER_SECRET")
-    if (file.exists()) file.forEachLine { content = it }
-    return content
+    val secret = rootProject.file(".secret/APP_CENTER_SECRET")
+    return if (secret.isFile) secret.readLines().lastOrNull().orEmpty() else ""
 }

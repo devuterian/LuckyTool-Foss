@@ -83,7 +83,7 @@ class XposedFragment : ModulePreferenceFragment(), MenuProvider {
                             addPreference(preference)
                         } else addPreference(preference)
                     } catch (_: Throwable) {
-                        withMain { context.toast("Error: $index ${preference.key}") }
+                        withMain { context.toast(context.getString(R.string.preference_load_error, index, preference.key.orEmpty())) }
                     }
                 }
             }

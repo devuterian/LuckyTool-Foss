@@ -45,6 +45,24 @@ class LunarHelperUtils(val classLoader: ClassLoader?) {
         }
         chinese[1] = month
 
+        if (Locale.getDefault().language == "ko") {
+            val stems = arrayOf("갑", "을", "병", "정", "무", "기", "경", "신", "임", "계")
+            val branches = arrayOf("자", "축", "인", "묘", "진", "사", "오", "미", "신", "유", "술", "해")
+            val animals = arrayOf("쥐", "소", "호랑이", "토끼", "용", "뱀", "말", "양", "원숭이", "닭", "개", "돼지")
+            val yearIndex = chinese[0] - 1864
+            val yearText = stems[Math.floorMod(yearIndex, 10)] + branches[Math.floorMod(yearIndex, 12)] + "년"
+            val zodiacText = animals[Math.floorMod(chinese[0] - 4, 12)] + "띠"
+            val isLeap = leapMonth in 1..12 && month - 12 == leapMonth
+            val monthText = (if (isLeap) "윤" else "") + (if (month > 12) month - 12 else month) + "월"
+            val dayText = "${chinese[2]}일"
+            return@runCatching when (style) {
+                1 -> dayText
+                2 -> "$monthText $dayText"
+                3 -> "$zodiacText $monthText $dayText"
+                else -> "$yearText $zodiacText $monthText $dayText"
+            }
+        }
+
         var ganZhi = ""
         runCatching {
             val i = chinese[0] - 1864
@@ -84,7 +102,7 @@ class LunarHelperUtils(val classLoader: ClassLoader?) {
             }.getOrNull()
 
     private fun fmt(date: Date, pattern: String): String =
-        SimpleDateFormat(pattern, Locale.getDefault()).format(date)
+        SimpleDateFormat(pattern, Locale.ROOT).format(date)
 
     private fun monthName(month: Int): String = runCatching {
         val i = if (month > 12) month - 12 else month

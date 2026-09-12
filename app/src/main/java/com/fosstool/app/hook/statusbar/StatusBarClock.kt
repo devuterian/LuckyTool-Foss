@@ -1,5 +1,7 @@
 package com.fosstool.app.hook.statusbar
 
+import com.fosstool.app.utils.KoreanText
+
 import android.content.Context
 import android.graphics.Typeface
 import android.os.Handler
@@ -226,19 +228,14 @@ object StatusBarClock : YukiBaseHooker() {
 
     private fun getFormat(format: String, nowTime: Date, nowLunar: String?): String {
         var finalFormat: String = format
-        if (finalFormat.contains("NNNN")) finalFormat = finalFormat.replace("NNNN", nowLunar!!)
-        if (finalFormat.contains("NNN")) finalFormat = finalFormat.replace(
-            "NNN", nowLunar!!.substring(2, nowLunar.length)
-        )
-        if (finalFormat.contains("NN")) finalFormat = finalFormat.replace(
-            "NN", nowLunar!!.substring(4, nowLunar.length)
-        )
-        if (finalFormat.contains("N")) {
-            val startInt = if (nowLunar!!.length > 8) 7 else 6
-            finalFormat = finalFormat.replace("N", nowLunar.substring(startInt, nowLunar.length))
+        // Translated dates have variable lengths; never slice by Chinese character offsets.
+        finalFormat = Regex("NNNN|NNN|NN|N").replace(finalFormat) { token ->
+            val style = when (token.value.length) { 1 -> 1; 2 -> 2; 3 -> 3; else -> 0 }
+            val lunar = LunarHelperUtils(appClassLoader).generateLunarDate(style)
+            "'" + lunar.replace("'", "''") + "'"
         }
-        if (finalFormat.contains("dddd")) finalFormat = finalFormat.replace("dddd", "dd号")
-        if (finalFormat.contains("ddd")) finalFormat = finalFormat.replace("ddd", "d号")
+        if (finalFormat.contains("dddd")) finalFormat = finalFormat.replace("dddd", KoreanText.choose("dd일", "dd号"))
+        if (finalFormat.contains("ddd")) finalFormat = finalFormat.replace("ddd", KoreanText.choose("d일", "d号"))
         if (finalFormat.contains("FF")) finalFormat = finalFormat.replace("FF", getPeriod(nowTime))
         if (finalFormat.contains("GG")) finalFormat =
             finalFormat.replace("GG", getDoubleHour(nowTime))
@@ -248,27 +245,27 @@ object StatusBarClock : YukiBaseHooker() {
     private fun getPeriod(nowTime: Date): String {
         return when (formatDate("HH", nowTime)) {
             "00", "01", "02", "03", "04", "05" -> {
-                "凌晨"
+                KoreanText.choose("새벽", "凌晨")
             }
 
             "06", "07", "08", "09", "10", "11" -> {
-                "上午"
+                KoreanText.choose("오전", "上午")
             }
 
             "12" -> {
-                "中午"
+                KoreanText.choose("정오", "中午")
             }
 
             "13", "14", "15", "16", "17" -> {
-                "下午"
+                KoreanText.choose("오후", "下午")
             }
 
             "18" -> {
-                "傍晚"
+                KoreanText.choose("저녁", "傍晚")
             }
 
             "19", "20", "21", "22", "23" -> {
-                "晚上"
+                KoreanText.choose("밤", "晚上")
             }
 
             else -> ""
@@ -278,51 +275,51 @@ object StatusBarClock : YukiBaseHooker() {
     private fun getDoubleHour(nowTime: Date): String {
         return when (formatDate("HH", nowTime)) {
             "23", "00" -> {
-                "子时"
+                KoreanText.choose("자시", "子时")
             }
 
             "01", "02" -> {
-                "丑时"
+                KoreanText.choose("축시", "丑时")
             }
 
             "03", "04" -> {
-                "寅时"
+                KoreanText.choose("인시", "寅时")
             }
 
             "05", "06" -> {
-                "卯时"
+                KoreanText.choose("묘시", "卯时")
             }
 
             "07", "08" -> {
-                "辰时"
+                KoreanText.choose("진시", "辰时")
             }
 
             "09", "10" -> {
-                "巳时"
+                KoreanText.choose("사시", "巳时")
             }
 
             "11", "12" -> {
-                "午时"
+                KoreanText.choose("오시", "午时")
             }
 
             "13", "14" -> {
-                "未时"
+                KoreanText.choose("미시", "未时")
             }
 
             "15", "16" -> {
-                "申时"
+                KoreanText.choose("신시", "申时")
             }
 
             "17", "18" -> {
-                "酉时"
+                KoreanText.choose("유시", "酉时")
             }
 
             "19", "20" -> {
-                "戌时"
+                KoreanText.choose("술시", "戌时")
             }
 
             "21", "22" -> {
-                "亥时"
+                KoreanText.choose("해시", "亥时")
             }
 
             else -> ""
@@ -331,7 +328,15 @@ object StatusBarClock : YukiBaseHooker() {
 
     private fun getDate(context: Context): String {
         var dateFormat = ""
-        if (isZh(context)) {
+        if (context.resources.configuration.locales[0].language == "ko") {
+            val parts = mutableListOf<String>()
+            if (isYear) parts.add("yyyy년")
+            if (isMonth) parts.add("M월")
+            if (isDay) parts.add("d일")
+            if (isWeek) parts.add("E")
+            dateFormat = parts.joinToString(if (isHideSpace) "" else " ")
+            if (parts.isNotEmpty() && !isHideSpace && !isDoubleRow) dateFormat += " "
+        } else if (isZh(context)) {
             if (isYear) dateFormat += "YY年"
             if (isMonth) dateFormat += "M月"
             if (isDay) dateFormat += "d日"

@@ -29,7 +29,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/search_view"
-            android:hint="Name / PackageName"
+            android:hint="@string/hide_app_intent_search_hint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
