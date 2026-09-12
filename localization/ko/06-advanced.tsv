@@ -1,0 +1,168 @@
+memc_menu_reset	초기화
+memc_reset_confirm	동영상 프레임 보간 설정을 기본값으로 되돌릴까요?
+memc_reset_select_preset	프리셋 선택
+memc_import_success	설정을 가져왔어요.
+memc_import_failed	설정을 가져오지 못했어요: %1$s
+memc_reset_success	설정을 초기화했어요.
+memc_pick_package	앱 선택
+memc_pick_activity	액티비티 선택
+memc_data_incomplete	필요한 정보를 모두 입력해 주세요.
+battery_info	배터리 상세 정보
+battery_info_summary	배터리 상태와 충전·방전 정보를 실시간으로 확인합니다.
+SoundRelated	소리
+remove_gms_usage_restrictions	Google 모바일 서비스(GMS) 사용 제한 해제
+custom_remote_provisioning_hostname	원격 키 프로비저닝 서버 주소
+custom_remote_provisioning_hostname_summary	기기 증명 인증서(attestation)를 받을 때 사용할 프록시 서버를 설정합니다.
+replace_system_root_state_detection	시스템 루트 상태 감지 결과 바꾸기
+enable_keep_notification_when_app_stop	앱을 강제 종료해도 알림 유지
+disable_long_press_home_key_start_speech_asssist	홈 버튼을 길게 눌러 음성 도우미 실행 끄기
+custom_gaussian_blur_level	가우시안 흐림 효과 강도
+set_ltpo_refresh_rate_mode	LTPO 주사율 모드
+enable_full_brightness_min_refresh_1	모든 밝기에서 최저 주사율 1Hz 허용
+enable_full_brightness_min_refresh_1_summary	일부 기기에서는 게임 도우미와 충돌해 화면이 깜박일 수 있습니다.
+enable_screen_rgb_color_temperature_ball	화면 색 온도 RGB 조절기 사용
+enable_video_memc_frame_insertion	동영상 프레임 보간 사용
+enable_game_architecture_display	게임 아키텍처 정보 표시
+enable_hasselblad_image_intro_page	핫셀블라드 카메라 소개 화면 표시
+enable_mariana_npu_intro_page	MariSilicon NPU 소개 화면 표시
+customize_device_ota_card_background	기기 정보의 업데이트 카드 배경 바꾸기
+enable_night_scene_30x_zoom	야간 촬영에서 30배 줌 사용
+enable_ai_master_watermark	AI 마스터 워터마크 사용
+enable_display_app_update_dot	앱 업데이트 알림 점 표시
+force_enable_multi_window_mode	다중 팝업 창 모드 강제 활성화
+enable_screen_color_temperature_rgb_space	화면 색 온도 RGB 색 공간 사용
+enable_clear_voice	선명한 음성 사용
+enable_sound_sealed_call	통화 소리 새어 나감 방지 사용
+enable_recent_task_pin_capsule	최근 앱의 고정 캡슐 표시 사용
+remove_aigc_elimination_limit	AI 지우개의 사용 제한 해제
+enable_lns_cut_photo	빠른 피사체 분리 사용
+enable_lns_cut_photo_summary	갤러리의 빠른 피사체 분리(lns) 기능을 켭니다.
+GalleryEditor	사진 편집기
+enable_opex_local_install	Opex 로컬 설치 허용
+disable_dm_verity	dm-verity 검증 끄기
+disable_dm_verity_summary	기기 무결성을 확인하는 dm-verity 검증을 비활성화합니다.
+remove_ota_notify_install_success	OTA 업데이트 설치 완료 알림 숨기기
+remove_ota_auto_download_dialog	OTA 업데이트 자동 다운로드 팝업 숨기기
+remove_ota_local_update_verity	로컬 OTA 업데이트 검증 끄기
+remove_ota_local_update_verity_summary	로컬 OTA 업데이트 패키지의 검증 제한(forbid_ota_local_update / ota_root_or_debug)을 해제합니다.
+force_enable_media_music_fluid_cloud_ripple	음악 재생의 Fluid Cloud 물결 효과 강제 활성화
+customize_device_ota_card_background_path	배경 이미지 경로
+hide_card_top_text	카드 상단 문구 숨기기
+apply_to_device_sharing_page	기기 정보 공유 화면에도 적용
+custom_processor_image_path_switch	프로세서 이미지 바꾸기
+customize_processor_image_path	배경 이미지 경로
+custom_processor_introduction_text	프로세서 소개 문구
+custom_processor_introduction_text_summary	권장 이미지 크기: 624 × 352픽셀
+custom_video_dynamic_frame_insertion_configuration	동영상 프레임 보간 세부 설정
+fix_default_app_jump_problem	기본 앱으로 열리지 않는 문제 수정
+settings_connection_sharing	연결 및 공유
+settings_sound	소리
+enable_voice_highlight	목소리 강조 사용
+enable_voice_highlight_summary	LSPosed 적용 대상에서 휴대폰 관리자를 선택해야 합니다.
+enable_holo_audio	홀로 오디오 사용
+settings_password_security	비밀번호 및 보안
+enable_google_auto_fill	Google 자동 완성 사용
+force_display_password_management_setting	비밀번호 관리 설정 강제 표시
+disable_device_admin_verification_dialog	기기 관리자 확인 팝업 끄기
+enable_increase_brightness_range	밝기 조절 범위 확대
+enable_lowest_auto_brightness_adjustment	자동 밝기의 최저 밝기 조절 사용
+enable_smart_switch_screen_resolution	화면 해상도 자동 전환 사용
+force_enable_reduce_bright_colors	화이트 포인트 줄이기 강제 활성화
+enable_touch_membrane_protector_mode	화면 보호 필름용 터치 모드 사용
+enable_swipe_up_navigation_gesture	위로 밀어 탐색하는 제스처 사용
+enable_game_dedicated_memory	게임 전용 메모리 사용
+enable_game_acceleration	게임 가속 사용
+auto_jump_accessibility_settings	접근성 설정으로 바로 이동
+settings_other_settings	기타 설정
+remove_device_name_change_limit	기기 이름 변경 제한 해제
+screen_physics_size_shown_cm	화면의 실제 크기를 cm로 표시
+auto_unlock_restricted_settings	제한된 설정 자동 해제
+auto_unlock_restricted_settings_summary	회색으로 비활성화된 옵션을 누르면 해당 제한을 자동으로 해제합니다.
+enable_show_never_timeout_summary_v2	켜면 시스템 설정에서 추가 옵션을 선택할 수 있습니다.
+customize_battery_health_data_percentage	배터리 상태 표시값 변경
+customize_battery_health_data_percentage_summary	0~100 사이의 값을 입력하세요. 비워 두면 시스템 값을 사용합니다. 실제 배터리 상태가 바뀌는 것은 아닙니다.
+display_module_calculates_battery_health_data	모듈이 계산한 배터리 상태 표시
+display_module_calculates_battery_health_data_summary	시스템이 제공하는 값 아래에 모듈이 계산한 배터리 상태를 함께 표시합니다.
+calculated_maximum_capacity	모듈이 계산한 최대 용량
+custom_music_fluid_cloud_whitelist	Fluid Cloud 음악 표시 허용 앱
+disable_music_fluid_cloud_display	Fluid Cloud 음악 표시 끄기
+set_custom_music_fluid_cloud_whitelist	Fluid Cloud 음악 표시 허용 목록 설정
+disable_music_fluid_cloud_blacklist	Fluid Cloud 음악 표시 차단 목록 해제
+enable_control_center_progress_percent_display	제어 센터 슬라이더에 퍼센트 표시
+custom_control_center_progress_percent_color	제어 센터 퍼센트 글자 색상
+statusbar_clock_custom_minimum_width	시계 최소 너비
+statusbar_clock_custom_padding	상태 표시줄 시계 여백
+statusbar_clock_custom_top_padding	시계 위쪽 여백
+statusbar_clock_custom_bottom_padding	시계 아래쪽 여백
+statusbar_clock_custom_left_padding	시계 왼쪽 여백
+statusbar_clock_custom_right_padding	시계 오른쪽 여백
+use_bold_typeface_style	굵은 글꼴 사용
+statusbar_network_no_unit	네트워크 속도 단위(B/KB/MB) 숨기기
+enable_nfc_delay_shutdown	NFC 끄기 지연
+custom_nfc_delay_shutdown_time	NFC를 끄기 전 대기 시간
+custom_nfc_delay_shutdown_time_summary	단위는 밀리초이며 기본값은 5000입니다.
+control_center_custom_gaps_for_special_tile	가로 화면의 특수 타일 여백
+custom_special_tile_top_gap	특수 타일 위쪽 여백
+custom_special_tile_bottom_gap	특수 타일 아래쪽 여백
+decrease_horizontal_brightness_bar_top_gap	가로 화면의 밝기 막대 위쪽 여백 줄이기
+reduce_landscape_brightness_bar_top_gap	가로 화면의 밝기 막대 위쪽 여백 줄이기
+voltage_display_mode	전압 표시 방식
+voltage_display_mode_mv	mV 단위로 표시
+voltage_display_mode_decimal	소수점으로 표시
+show_battery_health_degree	배터리 상태 표시
+always_show_positive_current	전류를 항상 양수로 표시
+allow_app_names_display_multiple_lines	홈 화면 앱 이름을 여러 줄로 표시
+custom_app_icon_name_line_height	앱 이름 줄 간격
+set_folder_icon_rows	폴더 안의 아이콘 행 수
+sync_folder_columns_to_preview	폴더 미리보기에도 같은 열 수 적용
+enable_drawer_layout_adjustment	앱 서랍 배치 변경
+set_drawer_icon_columns	앱 서랍 아이콘 열 수
+set_random_text_display_mode	무작위 문구 표시 방식
+custom_random_text_file	무작위 문구 파일
+custom_random_text_api	무작위 문구 API
+set_aod_typeface_mode	AOD 글꼴 설정
+apply_typeface_to_aod_clock	AOD 시계에 글꼴 적용
+set_wlan_sla_whitelist_mode	Wi-Fi 이중 채널 가속 허용 목록 방식
+remove_wlan_sla_blacklist	Wi-Fi 이중 채널 가속 차단 목록 해제
+custom_wlan_sla_whitelist	Wi-Fi 이중 채널 가속 허용 앱
+custom_wlan_sla_game_whitelist	Wi-Fi 이중 채널 가속 허용 게임
+common_words_customize_file	사용자 지정 파일
+common_words_customize_api	사용자 지정 API
+color_picker_select_color	색상 선택
+color_picker_current_color	현재 색상: %1$s
+custom_control_center_silder_transparency	제어 센터 슬라이더 투명도
+custom_fluid_cloud_icon_background_transparency	Fluid Cloud 아이콘 배경 투명도
+custom_tile_background_transparency	타일 배경 투명도
+disable_high_volume_warning_notifications	높은 볼륨 경고 알림 끄기
+enable_global_notification_simple_banner_mode	모든 알림에 간결한 배너 사용
+enable_notification_background_blur_effect	알림 배경 흐림 효과 사용
+force_display_of_device_controls_tiles	기기 제어 타일 강제 표시
+remove_control_center_clock_view	제어 센터 시계 숨기기
+remove_control_center_edit_button	제어 센터 편집 버튼 숨기기
+remove_control_center_more_button	제어 센터 더보기 버튼 숨기기
+set_control_center_volume_seekbar_mode	제어 센터 볼륨 막대 표시 방식
+set_control_center_volume_seekbar_mode_summary	기본값 / 강제로 사용 / 사용하지 않음
+remove_notification_cleanup_button	알림 지우기 버튼 숨기기
+statusbar_control_center_date_disable_text_scroll	제어 센터 날짜 텍스트 스크롤 끄기
+statusbar_control_center_date_set_display_mode_horizontal	제어 센터 날짜의 가로 화면 표시 방식
+statusbar_power_apply_to_battery_icon	배터리 아이콘에도 표시 스타일 적용
+statusbar_power_apply_to_battery_icon_summary	시스템 UI를 다시 시작해야 합니다.
+disable_screenshot_packagename_md5_encrypt	스크린샷 패키지 이름의 MD5 변환 끄기
+enable_stop_charging_at_80	배터리 80%에서 충전 중지
+remove_battery_restrict_plugin	배터리 제한 플러그인 끄기
+show_phone_usage_screen_time	화면 켜짐 사용 시간 표시
+remove_browser_window_limit_number	브라우저 창 수 제한 해제
+remove_browser_search_bar_app_promotion	브라우저 검색창의 앱 홍보 숨기기
+remove_mms_bottom_input_box_menu	메시지 입력란 하단 메뉴 숨기기
+remove_mms_card_marketing_button	메시지 카드의 홍보 버튼 숨기기
+disable_weather_jump_browser	날씨 앱에서 브라우저로 이동하지 않기
+enable_15_day_weather_expand_list	15일 일기예보 펼쳐 보기
+restore_rainfall_cloud_map_page	강수 구름 지도 화면 복원
+disable_forced_backup_app_list	앱 목록 강제 백업 끄기
+remove_back_gesture_confirmation_limit	뒤로 가기 제스처 재확인 생략
+remove_back_gesture_confirmation_limit_summary	Android 15와 16에서만 지원합니다.
+enable_photo_listview_senior_picked	갤러리 목록의 고급 선택 기능 사용
+enable_photo_editor_gif_synthesis	사진 편집기의 GIF 만들기 사용
+enable_spring_festival_watermark	춘절 워터마크 사용
+enable_national_day_watermark	중국 국경절 워터마크 사용
+set_photo_view_thumb_line_display_mode	사진 미리보기 막대 표시 방식
