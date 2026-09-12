@@ -10,35 +10,33 @@ permissions:
   contents: read
 
 jobs:
-  source-audit:
+  build:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
-      - name: Export source snapshot for localization audit
-        run: git archive --format=zip --output=source-audit.zip HEAD
-      - uses: actions/upload-artifact@v4
+      - uses: actions/setup-java@v4
         with:
-          name: source-audit
-          path: source-audit.zip
-          retention-days: 3
-      - name: Report localization surfaces
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Install compile SDK
+        run: sdkmanager 'platforms;android-37' 'build-tools;36.0.0'
+      - name: Prepare isolated CI signing and remove workstation proxy
+        shell: bash
         run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          import xml.etree.ElementTree as ET
-          root = Path('app/src/main')
-          for p in sorted((root / 'res').glob('values*/strings.xml')):
-              doc = ET.parse(p).getroot()
-              print(f'{p}: {len(doc)} entries')
-          print('\nBuild inputs:')
-          for p in ['build.gradle.kts', 'settings.gradle.kts', 'gradle/wrapper/gradle-wrapper.properties', 'gradle.properties']:
-              print(f'--- {p} ---\n{Path(p).read_text()}')
-          print('\nEmbedded UI text:')
-          import re
-          for p in sorted((root / 'java').rglob('*.kt')):
-              if '/ui/' not in str(p):
-                  continue
-              for i, line in enumerate(p.read_text().splitlines(), 1):
-                  if re.search(r'[\u4e00-\u9fff]', line) and '"' in line and not line.lstrip().startswith('//'):
-                      print(f'{p}:{i}: {line.strip()}')
-          PY
+          sed -i '/^systemProp\..*[Pp]roxy/d' gradle.properties
+          mkdir -p keystore
+          keytool -genkeypair -keystore "$RUNNER_TEMP/ci.jks" -alias ci -storepass android -keypass android -keyalg RSA -keysize 2048 -validity 30 -dname 'CN=CI Build'
+          printf 'storeFile=%s\nkeyAlias=ci\nkeyPassword=android\nstorePassword=android\n' "$RUNNER_TEMP/ci.jks" > keystore/keystore.properties
+      - name: Build baseline
+        run: bash gradlew --no-daemon --stacktrace :app:assembleDebug
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: build-reports
+          path: |
+            app/build/reports
+            build/reports
+          if-no-files-found: ignore
