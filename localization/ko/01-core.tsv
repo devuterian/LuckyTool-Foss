@@ -1,0 +1,174 @@
+# Korean UI translations. UTF-8, key<TAB>value; preserve Android format arguments.
+xposeddescription	ColorOS의 기능을 확장하고 사용 환경을 개선하는 Xposed 모듈\n원 개발자: luckyzyx
+sharedUserLabel	LuckyTool 사용자
+nav_function	기능
+nav_home	홈
+nav_other	기타
+nav_log	로그
+nav_setting	설정
+fragment_source	소스 코드
+theme_title	테마
+theme_title_summary	설정을 변경하면 화면이 자동으로 새로고침됩니다.
+use_dynamic_color	다이내믹 컬러
+use_dynamic_color_summary	배경화면에 어울리는 시스템 색상을 사용합니다.
+dark_theme	다크 모드
+follow_system	시스템 설정 따르기
+dark_theme_off	항상 끄기
+dark_theme_on	항상 켜기
+language	언어
+privacy_agreement	개인정보 처리방침
+tile_auto_start	빠른 설정 타일 자동 실행
+tile_auto_start_summary	적용 대상 프로세스에서 실행 중인 모듈과 설치된 모듈의 버전이 같으면, 화면 잠금 해제 시 켜져 있는 타일의 기능을 자동으로 실행합니다.\n실행되지 않으면 적용 대상 프로세스를 다시 시작하고 루트 권한을 확인하세요.
+read_agreement	모듈을 사용하려면 다음 내용을 읽고 동의해 주세요.
+clear_all_data	모든 데이터 삭제
+clear_all_data_summary	모듈에 저장된 모든 기능 설정을 삭제합니다.
+clear_all_data_message	모든 기능 설정을 삭제할까요? 삭제한 후에는 각 기능을 다시 설정해야 합니다.
+other_settings	기타 설정
+enable_module_print_logs	모듈 실행 로그 기록
+enable_module_print_logs_summary	모듈 앱 자체의 실행 로그를 기록합니다.\n이 설정을 끄면 기록한 로그 파일을 가져옵니다.
+hide_function_page_icon	기능 화면의 아이콘 숨기기
+hide_desktop_module_icon	홈 화면에서 모듈 아이콘 숨기기
+hide_desktop_module_icon_summary	LSPosed의 홈 화면 아이콘 강제 표시 옵션을 먼저 꺼 주세요.
+backup_restore_clear	백업·복원·초기화
+backup_data	데이터 백업
+restore_data	데이터 복원
+data_backup_complete	데이터를 백업했어요.
+data_backup_error	데이터를 백업하지 못했어요.
+data_restore_complete	데이터를 복원했어요.
+about_title	앱 정보
+about_author	개발자
+feedback_download	문의 및 다운로드
+feedback_download_summary	텔레그램 채널, 그룹, 소스 저장소 등을 확인합니다.
+coolmarket	Coolapk 프로필
+module_doc	모듈 사용 설명서
+qq_channel	QQ 채널
+telegram_channel	텔레그램 채널
+telegram_group	텔레그램 그룹
+lsposed_repo	LSPosed 저장소
+github_repo	GitHub 저장소
+open_source	오픈 소스
+open_source_summary	사용된 오픈 소스 목록을 확인합니다.
+system_not_support	이 시스템에서는 지원하지 않는 기능이에요.
+unsupported_xposed	모듈이 활성화되지 않았습니다.\nLSPosed %1$s 이상에서 모듈과 적용 대상을 선택해 주세요.\n이미 설정했다면 확인을 눌러 앱을 종료한 뒤 다시 열어 보세요.
+unsupported_os	지원하지 않는 시스템
+unsupported_os_summary	이 모듈은 ColorOS 12 이상을 대상으로 합니다. 사용 전에 데이터를 백업하고 복구 방법을 준비해 주세요.
+no_root	루트 권한 없음
+no_root_summary	루트 권한을 확인할 수 없어 일부 기능을 사용할 수 없습니다.
+menu_search	검색
+optimize_app	앱 최적화
+menu_reboot	다시 시작 메뉴
+menu_settings	설정 메뉴
+restart_scope	적용 대상 프로세스 다시 시작
+need_restart_scope	적용 대상 프로세스를 다시 시작해야 합니다.
+need_restart_system	기기를 다시 시작해야 합니다.
+restart_scope_message	시스템 프레임워크를 제외한 모든 적용 대상 프로세스를 다시 시작할까요?\n모듈이 작동하지 않을 때 사용하세요.\n먼저 LSPosed에서 필요한 적용 대상을 모두 선택했는지 확인해 주세요.
+restart_only_this_page_scope	이 화면의 적용 대상만 다시 시작
+reboot	기기 다시 시작
+fast_reboot	빠른 재부팅
+menu_versioninfo	버전 정보
+scope_version_info	적용 대상 버전 정보
+show_system_app	시스템 앱 표시
+Android	시스템
+app_label	앱 이름
+package_name	패키지 이름
+version	버전
+ColorOSCorePatchTip	ColorOS 기본 설치 프로그램을 사용하려면 추가 설정이 필요합니다.\n기능 → 앱 → 앱 설치에서 관련 기능을 켜 주세요.
+corepatch	코어 패치
+corepatch_summary	앱 설치 제한을 해제합니다. Android 11~16을 지원합니다.
+downgr	앱 다운그레이드 허용
+downgr_summary	설치된 앱 위에 이전 버전을 덮어쓸 수 있도록 허용합니다.
+authcreak	패키지 관리자 서명 검증 끄기
+authcreak_summary	앱 설치 시 서명을 검증하지 않습니다. 변조된 앱도 설치될 수 있으니 주의하세요.
+digestCreak	APK 서명 검증 끄기
+digestCreak_summary	서명이 다른 앱으로 기존 앱을 덮어쓸 수 있도록 허용합니다.
+exactSigCheck	분할 APK 간 서명 일치 검사 끄기
+exactSigCheck_summary	분할 APK마다 서명이 달라도 설치할 수 있도록 허용합니다. 꼭 필요한 경우에만 켜세요.
+UsePreSig	설치 시 기존 앱의 서명 사용
+UsePreSig_summary	위험도가 높은 기능입니다. 반드시 필요한 경우에만 켜세요.
+bypassBlock	설치 차단 목록 무시
+bypassBlock_summary	Nothing Phone 등 일부 기기의 앱 설치 차단 목록을 무시합니다.
+sharedUser	공유 사용자 서명 검증 끄기
+sharedUser_summary	공유 사용자 ID의 서명과 다른 앱도 설치할 수 있도록 허용합니다. APK 서명 검증 끄기도 함께 켜야 합니다.
+disableVerificationAgent	설치 검증 서비스 끄기
+disableVerificationAgent_summary	Google Play의 보호 기능 등 설치 패키지 검증 서비스를 비활성화합니다.
+enhancedMode	강화 모드
+enhancedMode_summary	일부 앱의 내부 무결성 검사에 대응합니다. 일반적으로는 켤 필요가 없습니다.
+usepresig_warn	모든 설치 패키지가 기존 앱을 덮어쓸 수 있게 됩니다!\n출처를 알 수 없는 패키지를 설치할 때 특히 주의하세요.
+StatusBar	상태 표시줄
+StatusbarEvents	상태 표시줄 동작
+statusbar_double_click_lock_screen	상태 표시줄을 두 번 눌러 화면 잠그기
+vibrate_when_opening_the_statusbar	상태 표시줄을 펼칠 때 진동
+set_click_statusbar_scroll_to_top_mode	상태 표시줄을 눌러 맨 위로 이동
+set_click_statusbar_scroll_to_top_mode_remove_white_list	앱 허용 목록 제한 해제
+StatusBarClock	상태 표시줄 시계
+statusbar_clock_mode	시계 표시 방식
+statusbar_clock_show_year	연도 표시
+statusbar_clock_show_month	월 표시
+statusbar_clock_show_day	날짜 표시
+statusbar_clock_show_week	요일 표시
+statusbar_clock_show_period	시간대 표시
+statusbar_clock_show_double_hour	전통 시각 표시(자시·축시 등)
+statusbar_clock_show_second	초 표시
+statusbar_clock_hide_spaces	공백 숨기기
+statusbar_clock_text_alignment	시계 텍스트 정렬
+statusbar_clock_left_align	왼쪽 정렬
+statusbar_clock_center_align	가운데 정렬
+statusbar_clock_right_align	오른쪽 정렬
+statusbar_clock_show_doublerow	두 줄로 표시
+statusbar_clock_singlerow_fontsize	한 줄 표시 글자 크기
+statusbar_clock_doublerow_fontsize	두 줄 표시 글자 크기
+statusbar_clock_custom_format	시계 표시 형식
+statusbar_clock_custom_fontsize	시계 글자 크기
+statusbar_clock_fontsize_summary	0으로 설정하면 기존 글자 크기를 유지합니다.
+StatusBarNetWorkSpeed	상태 표시줄 네트워크 속도
+set_network_speed	네트워크 속도를 1초마다 갱신
+enable_double_row_network_speed	네트워크 속도를 두 줄로 표시
+set_network_speed_font_size	네트워크 속도 글자 크기
+set_network_speed_padding_bottom	네트워크 속도 아래쪽 여백
+statusbar_network_layout	네트워크 속도 배치
+statusbar_network_no_second	초당 단위(/s) 숨기기
+statusbar_network_no_space	네트워크 속도 표시의 공백 없애기
+set_network_speed_double_row_spacing	네트워크 속도 줄 간격
+StatusBarNotice	상태 표시줄 알림
+StatusBarNotice_summary	상태 표시줄의 알림을 설정합니다.
+RemoveStatusBarNotifications	상태 표시줄 알림 숨기기
+remove_statusbar_devmode	개발자 옵션 알림 숨기기
+remove_charging_completed	충전 완료 알림 숨기기
+remove_statusbar_top_notification	다른 앱 위에 표시 알림 숨기기
+remove_statusbar_top_notification_summary	상태 표시줄의 ‘다른 앱 위에 표시 중’ 알림을 숨깁니다.
+remove_vpn_active_notification	VPN 연결 알림 숨기기
+remove_vpn_active_notification_summary	상태 표시줄의 VPN 연결 알림을 숨깁니다.
+remove_flashlight_open_notification	손전등 사용 알림 숨기기
+remove_app_high_battery_consumption_warning	앱의 과도한 배터리 사용 경고 숨기기
+remove_app_high_battery_consumption_warning_summary	백그라운드 앱의 배터리 소모가 많아 즉시 최적화해야 한다는 경고를 숨깁니다.
+remove_high_performance_mode_notifications	고성능 모드 알림 숨기기
+remove_do_not_disturb_mode_notification	방해 금지 모드 알림 숨기기
+remove_hotspot_power_consumption_notification	핫스팟 배터리 사용 알림 숨기기
+remove_hotspot_power_consumption_notification_summary	핫스팟을 오래 켜 두면 배터리 소모와 발열이 증가한다는 알림을 숨깁니다.
+remove_notifications_for_mute_notifications	알림 음소거 안내 숨기기
+remove_virus_risk_notification_in_phone_manager	휴대폰 관리자의 바이러스 위험 알림 숨기기
+remove_gt_mode_notification	GT 모드 알림 숨기기
+allow_long_press_notification_modifiable	알림을 길게 눌러 설정 변경 허용
+remove_notification_manager_limit	알림 관리 제한 해제
+remove_small_window_reply_whitelist	팝업 창 답장의 앱 제한 해제
+set_small_window_reply_blacklist	팝업 창 답장 제외 앱
+set_small_window_reply_blacklist_message	제외할 앱의 패키지 이름을 한 줄에 하나씩 입력해 주세요.
+custom_notification_background_transparency	알림 배경 투명도
+StatusBarIcon	상태 표시줄 아이콘
+StatusBarIcon_summary	상태 표시줄에 표시할 아이콘을 설정합니다.
+StatusBarWIFIIcon	Wi-Fi 아이콘
+remove_wifi_data_inout	Wi-Fi 송수신 화살표 숨기기
+StatusBarMobileDataIcon	모바일 데이터 아이콘
+remove_mobile_data_icon	모바일 데이터 아이콘 숨기기
+remove_mobile_data_inout	모바일 데이터 송수신 화살표 숨기기
+remove_mobile_data_type	모바일 네트워크 유형 숨기기
+hide_non_network_card_icon	데이터에 사용하지 않는 SIM 아이콘 숨기기
+hide_inactive_signal_labels_gen2x2	비활성 신호 표시 숨기기(Gen2x2)
+hide_nosim_noservice	SIM 서비스 없음 아이콘 숨기기
+StatusBarBluetoothIcon	블루투스 아이콘
+hide_icon_when_bluetooth_not_connected	연결된 기기가 없으면 블루투스 아이콘 숨기기
+StatusBarOtherIcon	기타 아이콘
+remove_high_performance_mode_icon	고성능 모드 아이콘 숨기기
+remove_statusbar_securepayment_icon	결제 보호 아이콘 숨기기
+remove_green_dot_privacy_prompt	마이크·카메라 사용 표시(초록색 점) 숨기기
+remove_green_capsule_prompt	초록색 캡슐 표시 숨기기
