@@ -1,0 +1,172 @@
+log_save_failed	로그를 저장하지 못했어요.
+log_data_is_empty	저장할 로그가 없어요.
+log_no_data	오류 기록이 없습니다.
+log_filter_title	필터링할 내용 입력
+log_filter_layout_hint	패키지 이름이나 로그 내용 등
+increase_touch_sampling_rate	터치 샘플링 속도 높이기
+high_brightness_mode	고휘도 모드
+high_performance_mode	고성능 모드
+global_dc	항상 DC 디밍 사용
+fiveg_mode	5G
+display_refresh_rate	주사율 표시·숨기기
+google_service	Google 서비스
+touch_sampling_rate_level	터치 샘플링 단계
+touch_sampling_rate_level_summary	타일을 켰을 때 적용할 터치 샘플링 단계를 설정합니다.
+module_tiles_title	제어 센터에 타일 추가
+module_tiles_summary	모듈에서 제공하는 빠른 설정 타일을 제어 센터에 추가합니다.
+module_tiles_unsupported	이 기능은 Android 14 이상에서 사용할 수 있습니다.
+click_to_add_to_control_center	눌러서 제어 센터에 추가
+tile_add_success	타일을 추가했어요.
+tile_add_already	이미 추가된 타일이에요.
+tile_add_failed	타일을 추가하지 못했어요.
+optimizing_dex	최적화 중
+optimizing_dex_message	선택한 앱의 DEX 코드를 최적화하고 있습니다. 잠시 기다려 주세요.
+optimize_complete	최적화 완료
+optimize_complete_message	최적화를 마쳤습니다. 적용 대상 프로세스 또는 기기를 다시 시작하는 것을 권장합니다.
+optimize_failed	최적화 실패
+optimize_failed_apps	다음 앱을 최적화하지 못했습니다:
+no_data	데이터 없음
+select_apps_to_optimize	최적화할 앱 선택
+permission_denied_toast	권한이 거부되었습니다. 설정에서 직접 허용해 주세요: %1$s
+permission_error_toast	권한을 얻지 못했어요: %1$s
+all_files_access_permission	모듈이 정상적으로 작동할 수 있도록 필요한 파일 접근 권한을 허용해 주세요.
+get_installed_apps_permission	설치된 앱 목록 접근 권한
+use_user_typeface	사용자 글꼴 사용
+common_words_enable	사용
+common_words_disable	사용 안 함
+common_words_left	왼쪽
+common_words_right	오른쪽
+common_words_close	닫기
+common_words_open	열기
+common_words_share	공유
+common_words_add	추가
+common_words_remove	삭제
+common_words_ignore	무시
+common_words_default	기본값
+common_words_normal	일반
+common_words_special	특수
+common_words_preset	프리셋
+common_words_single_line	한 줄
+common_words_double_line	두 줄
+common_words_customize	직접 설정
+common_words_current_mode	현재 모드
+common_words_refresh	새로고침
+common_words_save	저장
+common_words_filter	필터
+common_words_loading	불러오는 중
+common_words_whitelist	허용 목록
+common_words_blacklist	차단 목록
+common_words_ads	광고
+net_connect_error	네트워크에 연결하지 못했어요.
+net_networking_error	현재 네트워크를 사용할 수 없어요.
+net_url_error	요청한 리소스의 주소가 올바르지 않아요.
+net_host_error	지정한 서버를 찾을 수 없어요.
+net_connect_timeout_error	서버 연결 시간이 초과되었어요. %s
+net_download_error	다운로드 중 오류가 발생했어요.
+net_no_cache_error	캐시를 읽지 못했어요.
+net_parse_error	데이터를 해석하는 중 오류가 발생했어요.
+request_failure	요청에 실패했어요.
+net_request_error	요청 매개변수가 올바르지 않아요.
+net_server_error	서버 응답에 오류가 있어요.
+net_null_error	필요한 값이 없어 오류가 발생했어요.
+net_error	알 수 없는 네트워크 오류가 발생했어요.
+net_other_error	알 수 없는 오류가 발생했어요.
+no_error_message	오류 메시지 없음
+remove_ads_from_weather	날씨 앱의 광고 숨기기
+alarm_clock_widget_red_one_mode	시계 위젯의 숫자 1 강조
+remove_beacon_link_time_limit	BeaconLink 오프라인 통화 시간 제한 해제
+remove_holiday_page_feed	공휴일 화면의 추천 피드 숨기기
+remove_almanac_page_feed	역서 화면의 추천 피드 숨기기
+remove_constellation_page_feed	별자리 화면의 추천 피드 숨기기
+unlock_hidden_options	숨겨진 설정 표시
+enable_eyeprotect_paper_texture_support	종이 질감 효과 사용
+remove_file_save_word_limit	파일 저장 시 이름 길이 제한 해제
+remove_compress_file_word_limit	압축 파일 이름 길이 제한 해제
+remove_rename_file_word_limit	파일 이름 변경 시 길이 제한 해제
+remove_root_detection_dialog	루트 감지 팝업 숨기기
+force_enable_iphone_shared_support	iPhone 연결 기능 강제 활성화
+custom_system_message_region_preset	시스템 메시지의 지역 프리셋
+force_enable_fn_nas	FN NAS 설정 강제 표시
+scan_nfc_tag_auto_click_button	NFC 태그를 읽으면 확인 버튼 자동 누르기
+remove_oshare_close_countdown	OShare 자동 종료 제한 해제
+remove_storage_permission_exception_dialog	저장소 권한 오류 팝업 숨기기
+remove_virus_risk_notification	휴대폰 관리자의 바이러스 위험 알림 숨기기
+remove_payment_protection_virus_dialog	결제 보호의 바이러스 감지 팝업 숨기기
+remove_virus_whitelist_countdown	위험 앱을 허용 목록에 추가할 때 대기 시간 없애기
+disable_malicious_app_intercept	위험 앱 실행 차단 끄기
+use_old_version_app_jump_dialog	이전 버전의 앱 전환 대화상자 사용
+enable_always_allow_app_start_dialog	앱 실행 확인에 항상 허용 옵션 표시
+remove_always_allow_app_start_list	앱 실행 항상 허용 목록 제한 해제
+auto_unlock_app_permission_management_limit	앱 권한 관리의 허용 제한 자동 해제
+force_enable_sidebar_auto_hide	사이드바 손잡이 자동 숨기기 강제 활성화
+unlock_transfer_station	전송 보관함 사용
+unlock_recent_files	최근 파일 사용
+enable_run_in_background	백그라운드에서 계속 실행
+bypass_power_mode	바이패스 충전
+remote_adb	원격 ADB 디버깅
+run_in_background	백그라운드 실행
+enable_third_party_call_recording	외부 앱 통화 녹음 사용
+expand_voip_recorder_whitelist	인터넷 전화(VoIP) 녹음 허용 앱 확대
+force_enable_xiaobu_call	Breeno 통화 기능 강제 활성화
+force_display_5g_switch	5G 켜기·끄기 설정 강제 표시
+force_display_volte_hd_call	VoLTE HD 통화 설정 강제 표시
+force_display_preferred_network_type	선호하는 네트워크 유형 설정 강제 표시
+enable_call_privacy_service	통화 개인정보 보호 서비스 사용
+enable_wifi_detail_show_gateway	Wi-Fi 상세 정보에 게이트웨이 표시
+enable_super_volume_mode	초고음량 모드 사용
+enable_call_super_volume_mode	통화 초고음량 모드 사용
+volume_level_min_zero	최저 볼륨을 0으로 설정 허용
+enable_app_specific_media_volume	앱별 미디어 볼륨 사용
+enable_app_specific_media_volume_summary	시스템에서 지원하는 경우에만 작동합니다.
+disable_volume_bar_thickness	볼륨 막대 두께 변화 효과 끄기
+enable_volume_bar_percent_display	볼륨 막대에 퍼센트 표시
+custom_volume_bar_percent_color	볼륨 퍼센트 글자 색상
+hide_app_intent	공유·열기 메뉴에서 앱 숨기기
+hide_app_intent_summary	공유, 텍스트 선택, 파일 열기 등에 표시할 앱을 설정합니다.
+hide_app_intent_search_hint	앱 이름 / 패키지 이름
+activity_name_search_hint	액티비티 이름
+hide_app_intent_chip_count_format	%1$d/%2$d
+intent_group_share	공유 메뉴
+intent_group_text	텍스트 선택 메뉴
+intent_group_open_with	연결 앱 메뉴
+intent_group_browser	브라우저 메뉴
+intent_type_single_share	항목 하나 공유
+intent_type_multi_share	여러 항목 공유
+intent_type_process_text	텍스트 길게 누르기
+intent_type_content	콘텐츠 열기
+intent_type_file	파일 열기
+intent_type_http_link	HTTP 링크
+intent_type_https_link	HTTPS 링크
+intent_filter_system_apps	시스템 앱
+intent_filter_title	필터
+intent_sort_and_filter	정렬 및 필터
+intent_sort_by	정렬 기준
+intent_reverse	역순
+intent_filter_label	필터
+intent_sort_app_name	앱 이름
+intent_sort_package_name	패키지 이름
+intent_sort_app_size	앱 크기
+intent_sort_install_time	설치 시각
+intent_sort_last_update_time	마지막 업데이트 시각
+intent_sort_target_sdk	대상 SDK 버전
+select_all_share_intent	공유 메뉴 전체 선택
+select_all_text_intent	텍스트 선택 메뉴 전체 선택
+select_all_open_with_intent	연결 앱 메뉴 전체 선택
+select_all_browser_intent	브라우저 메뉴 전체 선택
+clear_intent_config_data	모든 설정 삭제
+clear_intent_config_data_confirm	공유·열기 메뉴에 설정한 모든 앱 데이터를 삭제할까요?
+memc_config	동영상 프레임 보간(MEMC)
+memc_config_summary	동영상 프레임 보간을 사용할 앱과 세부 값을 설정합니다.
+memc_tab_packages	앱
+memc_tab_activitys	액티비티
+memc_search_hint_packages	패키지 이름
+memc_search_hint_activitys	패키지 이름 / 액티비티 이름
+memc_dialog_hint_package	패키지 이름
+memc_dialog_hint_activity	액티비티 이름
+memc_dialog_hint_rate	주사율
+memc_dialog_hint_type	유형
+memc_dialog_helper_memc	추가 매개변수는 다음 명령으로 확인하세요.\n/odm/bin/irisConfig -help 2 (MEMC)
+memc_dialog_helper_sdr2hdr	추가 매개변수는 다음 명령으로 확인하세요.\n/odm/bin/irisConfig -help 3 (SDR2HDR)
+memc_add	추가
+memc_remove	삭제
+memc_menu_import_xml	XML 가져오기
