@@ -1,0 +1,175 @@
+remove_green_capsule_prompt_summary	초록색 Wi-Fi 핫스팟 아이콘을 숨깁니다.
+StatusBarSmallIconStatus	상태 표시줄 작은 아이콘
+status_bar_icon_vertical_center	상태 표시줄 아이콘을 세로 가운데 정렬
+StatusBarControlCenter	제어 센터
+ControlCenter_Clock_Related	제어 센터 시계
+control_center_clock_show_second	제어 센터 시계에 초 표시
+statusbar_control_center_clock_colon_style	제어 센터 시계의 콜론 모양
+fix_clock_colon_style	기본 콜론 모양 사용
+fix_clock_colon_style_summary	켜면 시스템 기본 콜론을, 끄면 제조사가 지정한 콜론을 사용합니다.
+statusbar_control_center_clock_red_one_mode	제어 센터 시계의 숫자 1 강조
+remove_control_center_clock_red_one	제어 센터 시계의 빨간색 1 없애기
+remove_control_center_date_comma	제어 센터 날짜의 쉼표 없애기
+statusbar_control_center_date_show_lunar	제어 센터에 음력 날짜 표시
+statusbar_control_center_date_fix_width	날짜 표시 너비 보정
+statusbar_control_center_date_fix_lunar_horizontal	가로 화면의 음력 날짜 표시 보정
+fix_control_center_date_display	제어 센터 날짜 표시 보정
+fix_control_center_date_display_suammry	날짜가 잘려서 표시되는 문제를 보정합니다.
+ControlCenterNotificationCenter	제어 센터 알림
+ enable_notification_align_both_sides	알림 양쪽 끝 정렬
+enable_notification_importance_classification	알림을 중요도에 따라 분류
+ControlCenter_UI_Related	제어 센터 화면
+set_media_player_display_mode	미디어 플레이어 표시 방식
+set_media_player_display_mode_hide_when_no_meida_player	재생 중인 미디어가 없으면 숨기기
+force_enable_media_toggle_button	미디어 전환 버튼 강제 활성화
+set_auto_brightness_button_mode	자동 밝기 버튼 표시 방식
+remove_control_center_user_switcher	사용자 전환 버튼 숨기기
+remove_control_center_mydevice	내 기기 숨기기
+remove_control_center_carriers	통신사 이름 숨기기
+restore_page_layout_row_count_for_edit_tiles	타일 편집 화면의 기본 행 수 복원
+set_control_center_search_button_mode	제어 센터 검색 버튼 표시 방식
+remove_control_center_networkwarn	제어 센터 하단의 보안 경고 숨기기
+remove_control_center_networkwarn_dialog	경고 팝업만 숨기기
+remove_control_center_networkwarn_dialog_and_text	경고 문구와 팝업 모두 숨기기
+remove_control_center_networkwarn_summary	VPN 연결 시 제어 센터 하단에 나타나는 문구와, CA 인증서 설치 시 네트워크가 감시될 수 있다는 경고를 숨깁니다.
+custom_control_center_background_transparency	제어 센터 배경 투명도
+StatusBarTiles	빠른 설정 타일
+MediaPlayer	미디어 플레이어
+auto_expand_tile_rows_horizontal	가로 화면에서 타일 행 자동 확장
+auto_expand_tile_rows_horizontal_summary	미디어 플레이어가 숨겨져 있으면 가로 화면에서 타일을 두 줄로 표시합니다.
+auto_expand_tile_rows_horizontal_summary_2	아래의 타일 기능 전체 사용을 먼저 켜 주세요.
+TileLongClickEvent	타일 길게 누르기
+restore_some_tile_long_press_event	타일을 길게 눌러 설정 열기 복원
+restore_some_tile_long_press_event_summary	Wi-Fi, 블루투스, 핫스팟 등의 타일을 길게 누르면 해당 설정 화면이 열리도록 복원합니다.
+long_press_wifi_tile_open_the_page	Wi-Fi 타일을 길게 눌러 설정 열기
+long_press_mobile_data_tile_open_the_page	모바일 데이터 타일을 길게 눌러 설정 열기
+long_press_wifi_hotspot_tile_open_the_page	핫스팟 타일을 길게 눌러 설정 열기
+long_press_bluetooth_tile_open_the_page	블루투스 타일을 길게 눌러 설정 열기
+long_press_screenshot_tile_open_the_page	스크린샷 타일을 길게 눌러 설정 열기
+long_press_dnd_tile_open_the_page	방해 금지 타일을 길게 눌러 설정 열기
+TileLayoutRelated	타일 배치
+fix_tile_align_both_sides	타일 양쪽 끝 정렬 보정
+fix_tile_align_both_sides_summary	타일을 펼치기 전에 양쪽 가장자리가 화면 밖으로 나가는 문제를 보정합니다.
+control_center_tile_enable	타일 기능 전체 사용
+tile_unexpanded_columns_vertical	접힌 타일 열 수(세로 화면)
+tile_unexpanded_columns_horizontal	접힌 타일 열 수(가로 화면)
+tile_expanded_columns_vertical	펼친 타일 열 수(세로 화면)
+tile_expanded_columns_horizontal	펼친 타일 열 수(가로 화면)
+tile_expanded_rows_vertical	펼친 타일 행 수(세로 화면)
+tile_columns_horizontal_c13	타일 열 수(가로 화면)
+StatusBarLayout	상태 표시줄 배치
+statusbar_layout_mode	상태 표시줄 배치 방식
+statusbar_layout_clock_center_align	시계 가운데 배치
+statusbar_layout_compatible_mode	화면 호환 모드
+statusbar_layout_left_margin	상태 표시줄 왼쪽 여백
+statusbar_layout_right_margin	상태 표시줄 오른쪽 여백
+statusbar_layout_margin_tip	0으로 설정하면 기존 여백을 유지합니다.
+StatusBarBattery	상태 표시줄 배터리
+remove_statusbar_battery_percent	배터리 잔량의 퍼센트 기호 숨기기
+statusbar_power_font_size	배터리 잔량 글자 크기
+StatusBarBatteryNotify	배터리 정보 알림
+battery_information_notify_permanent_display	항상 표시
+battery_information_notify_only_charging	충전 중에만 표시
+battery_information_display_mode	배터리 정보 표시 방식
+battery_information_display_mode_summary	상태 표시줄에 배터리 전압 등의 정보를 표시합니다.
+battery_information_show_charge	충전 정보 표시
+battery_information_show_charge_summary	충전 중에 충전기의 전압과 이론상 충전 전력을 상태 표시줄에 표시합니다.
+battery_information_show_simple_mode	간단히 표시
+battery_information_show_dual_voltage	듀얼 셀 전압 표시
+battery_information_show_update_time	갱신 시각 표시
+battery_information_show_update_time_summary	현재 정보가 마지막으로 갱신된 시각을 표시합니다.
+battery_status_unknown	알 수 없음
+battery_status_charging	충전 중
+battery_status_discharging	배터리 사용 중
+battery_status_not_charging	충전하지 않음
+battery_status_full	충전 완료
+battery_temperature	온도
+battery_voltage	전압
+battery_electric_current	전류
+battery_charger_voltage	충전 전압
+battery_charger_type	충전 방식
+battery_power	전력
+battery_technology	충전 기술
+battery_update_time	갱신 시각
+AodRelated	화면 꺼짐 표시(AOD)
+remove_aod_music_whitelist	AOD 음악 표시의 앱 제한 해제
+remove_aod_notification_icon_whitelist	AOD 알림 아이콘의 앱 제한 해제
+restore_aod_notification_icon_color	AOD 알림 아이콘의 원래 색상 복원
+set_aod_style_mode	AOD 스타일 설정
+force_enable_screen_off_music_support	화면이 꺼져 있을 때 음악 표시 강제 활성화
+force_enable_screen_off_music_support_summary	화면 꺼짐 음악 표시를 지원하지 않는 기기에서만 사용하세요.
+LockScreen	잠금 화면
+LockScreenClockComponent	잠금 화면 시계
+lock_screen_clock_redone_mode	잠금 화면 시계의 숫자 1 강조
+apply_lock_screen_dual_clock_redone	잠금 화면 듀얼 시계에도 적용
+remove_lock_screen_redone	잠금 화면 시계의 빨간색 1 없애기
+set_lock_screen_centered	잠금 화면 시계를 가운데 배치
+set_lock_screen_centered_summary	시스템 설정에서 잠금 화면 시계를 가운데 배치할 수 없는 경우에만 사용하세요.
+lock_screen_clock_use_user_typeface	잠금 화면 시계에 사용자 글꼴 사용
+LockScreenChargingComponent	잠금 화면 충전 표시
+set_lock_screen_warp_charging_style	Warp 충전 표시 스타일
+set_lock_screen_charging_text_logo_style	충전 텍스트 로고 스타일
+force_lock_screen_charging_show_wattage	충전 전력(W) 강제 표시
+lock_screen_charging_use_user_typeface	충전 표시에 사용자 글꼴 사용
+set_full_screen_charging_animation_mode	전체 화면 충전 애니메이션
+LockScreenCarrier	잠금 화면 통신사 표시
+remove_statusbar_carriers	상태 표시줄의 통신사 이름 숨기기
+statusbar_carriers_use_user_typeface	통신사 이름에 사용자 글꼴 사용
+LockScreenButton	잠금 화면 버튼
+remove_top_lock_screen_icon	잠금 화면 상단 아이콘 숨기기
+remove_lock_screen_bottom_left_button	잠금 화면 왼쪽 아래 버튼 숨기기
+lock_screen_bottom_left_button_replace_with_flashlight	왼쪽 아래 버튼을 손전등으로 바꾸기
+lock_screen_switch_flashlight_auto_close_screen	손전등을 켜거나 끈 뒤 화면 끄기
+remove_lock_screen_bottom_right_camera	잠금 화면 오른쪽 아래 카메라 숨기기
+remove_lock_screen_close_notification_button	잠금 화면의 알림 끄기 버튼 숨기기
+remove_lock_screen_bottom_sos_button	긴급 전화(SOS) 버튼 숨기기
+remove_lock_screen_bottom_sos_button_summary	잠금 해제 화면 아래쪽의 긴급 전화 버튼을 숨깁니다.
+LockScreenEvent	잠금 화면 동작
+remove_72hour_password_verification	72시간마다 비밀번호 확인 끄기
+remove_72hour_password_verification_summary	72시간 동안 비밀번호로 잠금을 해제하지 않으면 비밀번호 입력을 요구하는 보안 제한을 해제합니다. 기기를 다시 시작하면 적용됩니다.
+alarmclock_widget_redone_mode	시계 위젯의 숫자 1 강조
+remove_alarmclock_widget_redone	홈 화면 시계의 빨간색 1 없애기
+remove_alarmclock_widget_redone_pro	홈 화면 시계의 빨간색 1 없애기(강화)
+remove_alarmclock_widget_redone_pro_summary	일반 옵션이 작동하지 않을 때만 사용하세요. 두 방식을 함께 적용하면 오류가 발생합니다.
+Desktop	홈 화면
+AppBadgeRelated	앱 배지
+remove_app_shortcut_badge	앱 바로가기 배지 숨기기
+remove_app_work_badge	업무 프로필 배지 숨기기
+remove_app_clone_badge	앱 복제 배지 숨기기
+launcher_layout_related	홈 화면 배치
+launcher_layout_row_colume	홈 화면에서 지원할 최대 행·열 수
+launcher_layout_enable	홈 화면 아이콘 배치 변경
+launcher_layout_max_rows	홈 화면 최대 행 수
+launcher_layout_max_columns	홈 화면 최대 열 수
+RecentTaskListRelated	최근 앱 화면
+long_press_app_icon_open_app_details	앱 아이콘을 길게 눌러 앱 정보 열기
+remove_recent_task_list_clear_button	최근 앱의 모두 닫기 버튼 숨기기
+remove_bottom_app_icon_of_recent_task_list	최근 앱 화면 하단의 앱 아이콘 숨기기
+PaginationComponentRelated	페이지 표시기
+remove_pagination_component	홈 화면 페이지 표시기 숨기기
+remove_folder_pagination_component	폴더 페이지 표시기 숨기기
+disable_pagination_component_sliding	페이지 표시기를 밀어 이동하는 동작 끄기
+FolderLayoutRelated	폴더 배치
+remove_folder_preview_background	폴더 미리보기 배경 없애기
+enable_folder_layout_adjustment	폴더 배치 변경
+set_icon_columns_in_folder	폴더 안의 아이콘 열 수
+launcher_events	홈 화면 동작
+Application	앱
+AppStartupRelated	앱 실행
+disable_splash_screen	앱 시작 화면 끄기
+disable_splash_screen_summary	시작 애니메이션을 없애면 앱이 열릴 때 1~2초간 빈 화면이 보일 수 있습니다. 불편하다면 켜지 마세요.
+disable_preload_splash	모든 앱에 시작 화면 사용
+disable_preload_splash_summary	기기를 다시 시작해야 합니다.
+APPRelatedList	앱별 기능 목록
+enable_zoom_window	사용자 지정 지원 목록 사용
+zoom_window_support_list	팝업 창 지원 앱
+zoom_window_support_list_summary	필요한 앱만 선택하세요. 일부 앱에서는 예상하지 못한 문제가 발생할 수 있습니다.
+multi_app_enable	사용자 지정 목록으로 대체
+multi_app_custom_list	앱 복제 지원 목록 바꾸기
+multi_app_custom_list_summary	기존 앱 복제 지원 목록을 이 목록으로 대체합니다. 앱을 너무 많이 선택하면 느려질 수 있습니다.
+dark_mode_support_list	다크 모드 지원 앱
+cur_type_none	없음
+custom_config_app_intent_list	앱 인텐트 목록 설정
+custom_config_app_intent_list_summary	기기를 다시 시작해야 합니다.
+set_multi_app_support_mode	앱 복제 지원 방식
+set_multi_app_support_mode_summary	기기를 다시 시작해야 합니다.\n일부 기기에서는 전체 앱 목록을 사용할 수 없으며, 해당 기기용 앱 복제 앱을 설치해야 합니다.
