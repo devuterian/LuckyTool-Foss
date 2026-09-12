@@ -1,0 +1,44 @@
+name: Korean localization CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Export source snapshot for localization audit
+        run: git archive --format=zip --output=source-audit.zip HEAD
+      - uses: actions/upload-artifact@v4
+        with:
+          name: source-audit
+          path: source-audit.zip
+          retention-days: 3
+      - name: Report localization surfaces
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          root = Path('app/src/main')
+          for p in sorted((root / 'res').glob('values*/strings.xml')):
+              doc = ET.parse(p).getroot()
+              print(f'{p}: {len(doc)} entries')
+          print('\nBuild inputs:')
+          for p in ['build.gradle.kts', 'settings.gradle.kts', 'gradle/wrapper/gradle-wrapper.properties', 'gradle.properties']:
+              print(f'--- {p} ---\n{Path(p).read_text()}')
+          print('\nEmbedded UI text:')
+          import re
+          for p in sorted((root / 'java').rglob('*.kt')):
+              if '/ui/' not in str(p):
+                  continue
+              for i, line in enumerate(p.read_text().splitlines(), 1):
+                  if re.search(r'[\u4e00-\u9fff]', line) and '"' in line and not line.lstrip().startswith('//'):
+                      print(f'{p}:{i}: {line.strip()}')
+          PY
