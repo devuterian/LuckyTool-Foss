@@ -6,7 +6,7 @@ on:
   pull_request:
   workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
 concurrency:
   group: korean-ci-${{ github.ref }}
   cancel-in-progress: true
@@ -16,27 +16,11 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
-      - name: Integrate and validate Korean sources
-        shell: bash
+      - name: Validate Korean localization
         run: |
-          if [ -f localization/integrate_runtime.py ]; then
-            python3 localization/integrate_runtime.py
-            rm localization/integrate_runtime.py
-          fi
-          rm -f localization/runtime.patch.zlib.b64
-          python3 localization/generate.py
           python3 localization/generate.py --check
-      - name: Commit generated source files
-        if: github.event_name == 'push' && github.ref == 'refs/heads/korean-localization'
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add app gradle.properties localization
-          if ! git diff --cached --quiet; then
-            git commit -m 'l10n(ko): integrate validated Korean resources and runtime UI'
-            git push origin HEAD:korean-localization
-          fi
-      - name: Export integrated source snapshot
+          python3 localization/test_localization.py
+      - name: Export source snapshot
         run: git archive --format=zip --output=source-audit.zip HEAD
       - uses: actions/upload-artifact@v4
         with:
@@ -49,7 +33,7 @@ jobs:
           java-version: |
             17
             21
-      - name: Install verified current Android command-line tools
+      - name: Install verified Android command-line tools
         shell: bash
         run: |
           curl --fail --location --retry 3 https://dl.google.com/android/repository/commandlinetools-linux-15859902_latest.zip -o "$RUNNER_TEMP/android-tools.zip"
@@ -60,15 +44,15 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           cache-read-only: ${{ github.event_name == 'pull_request' }}
+          cache-cleanup: never
       - name: Install compile SDK
         shell: bash
         run: |
-          sdkmanager --sdk_root="$ANDROID_HOME" --channel=3 --list > "$RUNNER_TEMP/sdk-list.txt"
-          grep -E 'platforms;android-(36|37|Cinnamon)|build-tools;(36|37)' "$RUNNER_TEMP/sdk-list.txt" || true
           set +o pipefail
-          yes | sdkmanager --sdk_root="$ANDROID_HOME" --licenses > /dev/null
+          yes | sdkmanager --sdk_root="$ANDROID_HOME" --licenses > /dev/null 2>&1
           set -o pipefail
-          sdkmanager --sdk_root="$ANDROID_HOME" --channel=3 'platforms;android-37' 'build-tools;36.0.0'
+          sdkmanager --sdk_root="$ANDROID_HOME" 'platforms;android-37.0' 'build-tools;36.0.0'
+          test -f "$ANDROID_HOME/platforms/android-37.0/android.jar"
       - name: Build release APK
         shell: bash
         run: |
