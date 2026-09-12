@@ -32,7 +32,7 @@ android {
             }
         }
     }
-    compileSdk = 36
+    compileSdk = 37
     namespace = "com.fosstool.app"
     defaultConfig {
         applicationId = "com.fosstool.app"

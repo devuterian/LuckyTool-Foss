@@ -179,7 +179,7 @@ fun setRefresh(context: Context, name: String, minRefresh: String?, peakRefresh:
 fun setParameter(context: Context, name: String, key: String?, value: String?) {
     val contentResolver = context.contentResolver
     safeOf({
-        context.toast("apply $name Hz failed!")
+        context.toast(context.getString(R.string.refresh_rate_apply_error, name))
     }) {
         val contentValues = ContentValues(2)
         contentValues.put("name", key)

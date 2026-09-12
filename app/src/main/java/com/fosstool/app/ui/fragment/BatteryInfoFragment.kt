@@ -63,33 +63,39 @@ class BatteryInfoFragment : Fragment() {
         val tempC = if (temperature >= 0) temperature.toFloat() / 10f else -1f
         val voltMV = if (voltage >= 0) voltage else -1
 
-        val sb = StringBuilder()
-        sb.append("电量: ${batteryPct}%\n")
-        sb.append("电压: ${voltMV}mV\n")
-        sb.append("温度: ${tempC}°C\n")
-        sb.append("状态: ${when(status) {
-            BatteryManager.BATTERY_STATUS_CHARGING -> "充电中"
-            BatteryManager.BATTERY_STATUS_DISCHARGING -> "放电中"
-            BatteryManager.BATTERY_STATUS_FULL -> "已充满"
-            BatteryManager.BATTERY_STATUS_NOT_CHARGING -> "未充电"
-            else -> "未知"
-        }}\n")
-        sb.append("健康: ${when(health) {
-            BatteryManager.BATTERY_HEALTH_GOOD -> "良好"
-            BatteryManager.BATTERY_HEALTH_OVERHEAT -> "过热"
-            BatteryManager.BATTERY_HEALTH_DEAD -> "已损坏"
-            BatteryManager.BATTERY_HEALTH_OVER_VOLTAGE -> "过压"
-            BatteryManager.BATTERY_HEALTH_UNSPECIFIED_FAILURE -> "未知故障"
-            else -> "未知"
-        }}\n")
-        sb.append("技术: ${technology ?: "未知"}\n")
-        sb.append("充电方式: ${when(plugged) {
-            BatteryManager.BATTERY_PLUGGED_AC -> "AC充电器"
+        val unknown = getString(R.string.battery_status_unknown)
+        val statusText = getString(when (status) {
+            BatteryManager.BATTERY_STATUS_CHARGING -> R.string.battery_status_charging
+            BatteryManager.BATTERY_STATUS_DISCHARGING -> R.string.battery_status_discharging
+            BatteryManager.BATTERY_STATUS_FULL -> R.string.battery_status_full
+            BatteryManager.BATTERY_STATUS_NOT_CHARGING -> R.string.battery_status_not_charging
+            else -> R.string.battery_status_unknown
+        })
+        val healthText = getString(when (health) {
+            BatteryManager.BATTERY_HEALTH_GOOD -> R.string.battery_health_good
+            BatteryManager.BATTERY_HEALTH_OVERHEAT -> R.string.battery_health_overheat
+            BatteryManager.BATTERY_HEALTH_DEAD -> R.string.battery_health_dead
+            BatteryManager.BATTERY_HEALTH_OVER_VOLTAGE -> R.string.battery_health_overvoltage
+            BatteryManager.BATTERY_HEALTH_UNSPECIFIED_FAILURE -> R.string.battery_health_failure
+            BatteryManager.BATTERY_HEALTH_COLD -> R.string.battery_health_cold
+            else -> R.string.battery_status_unknown
+        })
+        val plugText = when (plugged) {
+            BatteryManager.BATTERY_PLUGGED_AC -> getString(R.string.battery_plug_ac)
             BatteryManager.BATTERY_PLUGGED_USB -> "USB"
-            BatteryManager.BATTERY_PLUGGED_WIRELESS -> "无线充电"
-            else -> "未知"
-        }}\n")
-
-        batteryInfoText.text = sb.toString()
+            BatteryManager.BATTERY_PLUGGED_WIRELESS -> getString(R.string.battery_plug_wireless)
+            0 -> getString(R.string.battery_unplugged)
+            else -> unknown
+        }
+        fun row(label: Int, value: String) = getString(R.string.battery_info_row, getString(label), value)
+        batteryInfoText.text = listOf(
+            row(R.string.battery_level_label, if (batteryPct >= 0) "$batteryPct%" else unknown),
+            row(R.string.battery_voltage, if (voltMV >= 0) "$voltMV mV" else unknown),
+            row(R.string.battery_temperature, if (temperature >= 0) "$tempC °C" else unknown),
+            row(R.string.battery_status_label, statusText),
+            row(R.string.battery_health_label, healthText),
+            row(R.string.battery_chemistry_label, technology?.takeIf { it.isNotBlank() } ?: unknown),
+            row(R.string.battery_charger_type, plugText)
+        ).joinToString("\n")
     }
 }

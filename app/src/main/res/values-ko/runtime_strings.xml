@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="battery_level_label">배터리 잔량</string>
+    <string name="battery_status_label">상태</string>
+    <string name="battery_health_label">배터리 상태</string>
+    <string name="battery_chemistry_label">배터리 종류</string>
+    <string name="battery_health_good">정상</string>
+    <string name="battery_health_overheat">과열</string>
+    <string name="battery_health_dead">손상됨</string>
+    <string name="battery_health_overvoltage">과전압</string>
+    <string name="battery_health_failure">원인 불명의 이상</string>
+    <string name="battery_health_cold">온도가 너무 낮음</string>
+    <string name="battery_plug_ac">전원 어댑터</string>
+    <string name="battery_plug_wireless">무선 충전</string>
+    <string name="battery_unplugged">연결되지 않음</string>
+    <string name="battery_info_row">%1$s: %2$s</string>
+    <string name="restore_key_error">이 설정을 복원하지 못했어요: %1$s</string>
+    <string name="preference_load_error">설정 %1$d번을 불러오지 못했어요: %2$s</string>
+    <string name="package_name_required">앱을 선택하거나 패키지 이름을 먼저 입력해 주세요.</string>
+    <string name="activities_not_found">이 앱의 액티비티 정보를 찾지 못했어요.</string>
+    <string name="browser_version_error">지원하지 않는 브라우저 버전이에요. 설치된 버전을 확인해 주세요.</string>
+    <string name="refresh_rate_apply_error">주사율 설정을 적용하지 못했어요: %1$s</string>
+    <string name="shortcuts_update_error">앱 바로가기를 설정하지 못했어요.</string>
+    <string name="default_notification_channel">일반 알림</string>
+    <string name="demo_notification_text">알림 미리보기</string>
+    <string name="clock_lunar_examples">N → 1일\nNN → 2월 1일\nNNN → 토끼띠 2월 1일\nNNNN → 계묘년 토끼띠 2월 1일\nFF → 새벽/오전/정오/오후/저녁/밤\nGG → 자시/축시/인시/묘시</string>
+</resources>

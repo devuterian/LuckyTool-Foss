@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="battery_level_label">Battery level</string>
+    <string name="battery_status_label">Status</string>
+    <string name="battery_health_label">Health</string>
+    <string name="battery_chemistry_label">Technology</string>
+    <string name="battery_health_good">Good</string>
+    <string name="battery_health_overheat">Overheating</string>
+    <string name="battery_health_dead">Failed</string>
+    <string name="battery_health_overvoltage">Overvoltage</string>
+    <string name="battery_health_failure">Unspecified failure</string>
+    <string name="battery_health_cold">Too cold</string>
+    <string name="battery_plug_ac">AC charger</string>
+    <string name="battery_plug_wireless">Wireless charger</string>
+    <string name="battery_unplugged">Not connected</string>
+    <string name="battery_info_row">%1$s: %2$s</string>
+    <string name="restore_key_error">Could not restore this setting: %1$s</string>
+    <string name="preference_load_error">Could not load setting %1$d: %2$s</string>
+    <string name="package_name_required">Select an app or enter its package name first.</string>
+    <string name="activities_not_found">No activity information is available for this app.</string>
+    <string name="browser_version_error">This browser version is not supported. Please check the installed version.</string>
+    <string name="refresh_rate_apply_error">Could not apply the refresh rate setting: %1$s</string>
+    <string name="shortcuts_update_error">Could not update app shortcuts.</string>
+    <string name="default_notification_channel">General notifications</string>
+    <string name="demo_notification_text">Notification preview</string>
+    <string name="clock_lunar_examples">N → lunar day\nNN → lunar month and day\nNNN → zodiac, month and day\nNNNN → sexagenary year, zodiac, month and day\nFF → period of day\nGG → traditional two-hour period</string>
+</resources>
