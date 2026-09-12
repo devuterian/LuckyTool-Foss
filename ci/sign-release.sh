@@ -73,10 +73,18 @@ APK="dist/FossTool_${VERSION}.apk"
   --out "$APK" "$PRIVATE/aligned.apk"
 "$TOOLS/apksigner" verify --verbose --print-certs "$APK" | tee dist/SIGNATURE.txt
 "$TOOLS/zipalign" -c -P 16 4 "$APK"
-"$TOOLS/aapt2" dump configurations "$APK" | grep -Eq '^ko($|-)'
-[[ "$(apkanalyzer manifest debuggable "$APK")" == 'false' ]] || { echo 'Release APK is debuggable'; exit 1; }
-unzip -p "$APK" assets/xposed_init | grep -q 'com.fosstool.app'
+"$TOOLS/aapt2" dump configurations "$APK" > "$PRIVATE/configurations.txt"
+grep -Eq '^ko($|-)' "$PRIVATE/configurations.txt"
+# AAPT2 reads the actual compiled manifest; unlike apkanalyzer it needs no
+# assumptions about where the command-line tools are installed.
 "$TOOLS/aapt2" dump badging "$APK" > dist/APK-METADATA.txt
+grep -q "^package: name='com.fosstool.app'" dist/APK-METADATA.txt
+if grep -q '^application-debuggable' dist/APK-METADATA.txt; then
+  echo 'Release APK is debuggable'
+  exit 1
+fi
+unzip -p "$APK" assets/xposed_init > "$PRIVATE/xposed_init"
+grep -q 'com.fosstool.app' "$PRIVATE/xposed_init"
 COMMIT="$(git rev-parse HEAD)"
 git archive --format=zip --prefix="FossTool-${VERSION}/" -o "dist/FossTool_${VERSION}_source.zip" "$COMMIT"
 printf 'Version: %s\nSource commit: %s\nBuild run: https://github.com/%s/actions/runs/%s\n' \
